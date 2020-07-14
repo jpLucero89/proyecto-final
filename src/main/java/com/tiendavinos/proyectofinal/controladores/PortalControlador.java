@@ -1,5 +1,6 @@
 package com.tiendavinos.proyectofinal.controladores;
 
+import com.tiendavinos.proyectofinal.enums.Roles;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.servicios.ClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class PortalControlador {
     public String registro(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String telefono, @RequestParam Integer edad, @RequestParam String clave1, @RequestParam String clave2) throws ErrorServicio {
 
         try {
-            clienteServicio.registrar(nombre, apellido, mail, telefono, edad, clave1, clave2);
+            clienteServicio.registrar(nombre, apellido, mail, telefono, edad, clave2, clave2);
         } catch (ErrorServicio e) {
             modelo.put("error", e.getMessage());
             modelo.put("nombre", nombre);
