@@ -7,7 +7,6 @@ package com.tiendavinos.proyectofinal.servicios;
 
 import com.tiendavinos.proyectofinal.entidades.Cliente;
 import com.tiendavinos.proyectofinal.enums.Roles;
-import static com.tiendavinos.proyectofinal.enums.Roles.ADMIN;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
 import java.util.Date;
@@ -27,7 +26,7 @@ public class ClienteServicio implements UserDetailsService {
     private ClienteRepositorio clienteRepositorio;
 
     @Transactional
-    public void registrar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2, Roles rol) throws ErrorServicio {
+    public void registrar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2) throws ErrorServicio {
 
         validar(nombre, apellido, mail, telefono, edad, clave, clave2);
 
@@ -37,7 +36,7 @@ public class ClienteServicio implements UserDetailsService {
         cliente.setMail(mail);
         cliente.setTelefono(telefono);
         cliente.setEdad(edad);
-        cliente.setRol(rol.USUARIO);
+        cliente.setRol(Roles.USUARIO);
 
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         cliente.setClave(encriptada);
@@ -47,67 +46,67 @@ public class ClienteServicio implements UserDetailsService {
         clienteRepositorio.save(cliente);
 
     }
-    
+
     @Transactional
-    public void modificar(String nombre,String apellido, String mail,String telefono, Integer edad, String clave, String clave2,String id) throws ErrorServicio {
-        
-        validar(nombre, apellido, mail,telefono, edad, clave, clave2);
-        
+    public void modificar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2, String id) throws ErrorServicio {
+
+        validar(nombre, apellido, mail, telefono, edad, clave, clave2);
+
         Optional<Cliente> resultado = clienteRepositorio.findById(id);
-        
+
         if (resultado.isPresent()) {
-            
+
             Cliente cliente = resultado.get();
             cliente.setApellido(apellido);
             cliente.setNombre(nombre);
             cliente.setMail(mail);
             cliente.setTelefono(telefono);
             cliente.setEdad(edad);
-            
+
             String encriptada = new BCryptPasswordEncoder().encode(clave);
             cliente.setClave(encriptada);
-            
+
             clienteRepositorio.save(cliente);
-            
+
         } else {
             throw new ErrorServicio("No se encontró el usuario solicitado");
         }
     }
-    
+
     @Transactional
     public void deshabilitar(String id) throws ErrorServicio {
-        
+
         Optional<Cliente> resultado = clienteRepositorio.findById(id);
-        
+
         if (resultado.isPresent()) {
-            
+
             Cliente cliente = resultado.get();
             cliente.setBaja(new Date());
-            
+
             clienteRepositorio.save(cliente);
-            
+
         } else {
             throw new Error("No se encontró el usuario solicitado");
         }
-   }
-    
+    }
+
     @Transactional
     public void habilitar(String id) throws ErrorServicio {
-        
+
         Optional<Cliente> resultado = clienteRepositorio.findById(id);
-        
+
         if (resultado.isPresent()) {
-         
+
             Cliente cliente = resultado.get();
             cliente.setBaja(null);
-            
+
             clienteRepositorio.save(cliente);
-            
+
         } else {
             throw new ErrorServicio("No se encontro el usuario solicitado");
-        }    
+        }
     }
-    
+
     private void validar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2) throws ErrorServicio {
         //(nombre, apellido, mail, telefono, edad, clave, clave2)
         if (nombre == null || nombre.isEmpty()) {
@@ -138,7 +137,6 @@ public class ClienteServicio implements UserDetailsService {
             throw new ErrorServicio("El usuario debe ser mayor de edad para registrarse");
         }
     }
-    
 
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
@@ -146,12 +144,12 @@ public class ClienteServicio implements UserDetailsService {
         Cliente cliente = clienteRepositorio.buscarPorMail(mail);
         if (cliente != null) {
             //FALTAN PERMISOS CLIENTES Y ADMIN
-            
+
             // return user;            
-        }else{
+        } else {
             return null;
         }
+        return null;
     }
-    
-    
+
 }
