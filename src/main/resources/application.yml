@@ -1,7 +1,3 @@
-
-
-
-
 spring:
   mail: 
     host: smtp.gmail.com
@@ -13,11 +9,11 @@ spring:
                 starttls:
                     required: true
                     enable: true
-    username: ortizjuani2001@gmail.com
-    password: 156947096
+    username: 
+    password: 
     
   datasource: 
-    url: jdbc:mysql://localhost:3306/proyecto-final?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/proyecto_final?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver 

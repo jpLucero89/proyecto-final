@@ -10,6 +10,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -22,14 +24,19 @@ public class Pedido {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
+    @ManyToOne
     private Cliente cliente;
-    private List<Vino> listadoVinos;
+    @ManyToMany
+    private List<Producto> listadoVinos;
     private Double precioTotal;
     private String direccionEnvio;
     private String medioDePago;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
+
+    public Pedido() {
+    }
 
     /**
      * @return the id
@@ -62,14 +69,14 @@ public class Pedido {
     /**
      * @return the listadoVinos
      */
-    public List<Vino> getListadoVinos() {
+    public List<Producto> getListadoVinos() {
         return listadoVinos;
     }
 
     /**
      * @param listadoVinos the listadoVinos to set
      */
-    public void setListadoVinos(List<Vino> listadoVinos) {
+    public void setListadoVinos(List<Producto> listadoVinos) {
         this.listadoVinos = listadoVinos;
     }
 
