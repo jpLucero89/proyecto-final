@@ -16,7 +16,7 @@ public class Producto {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    private String nombreVino;
+    private String nombre;
     @ManyToOne
     private Bodega bodega;
     private Integer capacidadBotella;
@@ -36,12 +36,12 @@ public class Producto {
         this.id = id;
     }
 
-    public String getNombreVino() {
-        return nombreVino;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreVino(String nombreVino) {
-        this.nombreVino = nombreVino;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Bodega getBodega() {
