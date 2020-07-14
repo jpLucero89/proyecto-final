@@ -22,7 +22,7 @@ public class Cliente {
     private String apellido;
     private String mail;
     private String clave;
-    private String direccion;
+    private String telefono;
     private Integer edad;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -33,6 +33,9 @@ public class Cliente {
     private String medioDePago;
     @OneToMany
     private List<Pedido> listadoPedido;
+
+    public Cliente() {
+    }
 
     /**
      * @return the id
@@ -104,18 +107,12 @@ public class Cliente {
         this.clave = clave;
     }
 
-    /**
-     * @return the direccion
-     */
-    public String getDireccion() {
-        return direccion;
+    public String getTelefono() {
+        return telefono;
     }
 
-    /**
-     * @param direccion the direccion to set
-     */
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     /**
