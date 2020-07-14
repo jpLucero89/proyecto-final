@@ -6,23 +6,28 @@
 package com.tiendavinos.proyectofinal.servicios;
 
 import com.tiendavinos.proyectofinal.entidades.Cliente;
+import com.tiendavinos.proyectofinal.enums.Roles;
+import static com.tiendavinos.proyectofinal.enums.Roles.ADMIN;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
 import java.util.Date;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClienteServicio {
+public class ClienteServicio implements UserDetailsService {
 
     @Autowired
     private ClienteRepositorio clienteRepositorio;
 
     @Transactional
-    public void registrar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2) throws ErrorServicio {
+    public void registrar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2, Roles rol) throws ErrorServicio {
 
         validar(nombre, apellido, mail, telefono, edad, clave, clave2);
 
@@ -32,6 +37,7 @@ public class ClienteServicio {
         cliente.setMail(mail);
         cliente.setTelefono(telefono);
         cliente.setEdad(edad);
+        cliente.setRol(rol.USUARIO);
 
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         cliente.setClave(encriptada);
@@ -43,9 +49,9 @@ public class ClienteServicio {
     }
     
     @Transactional
-    public void modificar(String nombre,String apellido, String mail, String clave, String clave2, Integer edad,String id) throws ErrorServicio {
+    public void modificar(String nombre,String apellido, String mail,String telefono, Integer edad, String clave, String clave2,String id) throws ErrorServicio {
         
-        validar(nombre, apellido, mail, clave, clave2, edad);
+        validar(nombre, apellido, mail,telefono, edad, clave, clave2);
         
         Optional<Cliente> resultado = clienteRepositorio.findById(id);
         
@@ -55,6 +61,7 @@ public class ClienteServicio {
             cliente.setApellido(apellido);
             cliente.setNombre(nombre);
             cliente.setMail(mail);
+            cliente.setTelefono(telefono);
             cliente.setEdad(edad);
             
             String encriptada = new BCryptPasswordEncoder().encode(clave);
@@ -90,13 +97,17 @@ public class ClienteServicio {
         Optional<Cliente> resultado = clienteRepositorio.findById(id);
         
         if (resultado.isPresent()) {
-            Cliente cliente
-        }
-        
+         
+            Cliente cliente = resultado.get();
+            cliente.setBaja(null);
+            
+            clienteRepositorio.save(cliente);
+            
+        } else {
+            throw new ErrorServicio("No se encontro el usuario solicitado");
+        }    
     }
     
-    
-
     private void validar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2) throws ErrorServicio {
         //(nombre, apellido, mail, telefono, edad, clave, clave2)
         if (nombre == null || nombre.isEmpty()) {
@@ -126,9 +137,21 @@ public class ClienteServicio {
         if (edad < 18) {
             throw new ErrorServicio("El usuario debe ser mayor de edad para registrarse");
         }
-        
-        
-
     }
+    
 
+    @Override
+    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+
+        Cliente cliente = clienteRepositorio.buscarPorMail(mail);
+        if (cliente != null) {
+            //FALTAN PERMISOS CLIENTES Y ADMIN
+            
+            // return user;            
+        }else{
+            return null;
+        }
+    }
+    
+    
 }
