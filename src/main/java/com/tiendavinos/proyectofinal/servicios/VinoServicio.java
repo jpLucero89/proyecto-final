@@ -2,7 +2,7 @@ package com.tiendavinos.proyectofinal.servicios;
 
 import com.tiendavinos.proyectofinal.entidades.Bodega;
 import com.tiendavinos.proyectofinal.entidades.Foto;
-import com.tiendavinos.proyectofinal.entidades.Producto;
+import com.tiendavinos.proyectofinal.entidades.Vino;
 import com.tiendavinos.proyectofinal.enums.Varietal;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.BodegaRepositorio;
@@ -31,7 +31,7 @@ public class VinoServicio {
 
         validar(nombreVino);
 
-        Producto vino = new Producto();
+        Vino vino = new Vino();
         vino.setNombreVino(nombreVino);
         vino.setAnioCosecha(anioCosecha);
 
