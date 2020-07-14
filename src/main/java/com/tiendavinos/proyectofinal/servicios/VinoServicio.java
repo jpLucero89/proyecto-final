@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.tiendavinos.proyectofinal.servicios;
 
 import com.tiendavinos.proyectofinal.entidades.Bodega;
@@ -17,44 +12,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-
 @Service
 public class VinoServicio {
-    
+
     @Autowired
     private BodegaRepositorio bodegaRepositorio;
-    
+
     @Autowired
     private VinoRepositorio vinoRepositorio;
-    
+
     @Autowired
     private FotoServicio fotoServicio;
-    
+
     @Transactional
-    public void agregarVino(String idBodega,String nombreVino, Varietal varietal,String anioCosecha,MultipartFile archivo) throws ErrorServicio {
-        
+    public void agregarVino(String idBodega, String nombreVino, Varietal varietal, String anioCosecha, MultipartFile archivo) throws ErrorServicio {
+
         Bodega bodega = bodegaRepositorio.findById(idBodega).get();
-        
+
         validar(nombreVino);
-        
+
         Vino vino = new Vino();
         vino.setNombreVino(nombreVino);
         vino.setAnioCosecha(anioCosecha);
-        
+
         Foto foto = fotoServicio.guardar(archivo);
         vino.setFoto(foto);
-        
+
         vinoRepositorio.save(vino);
-        
+
     }
 
     public void validar(String nombreVino) throws ErrorServicio {
-        
-        if( nombreVino == null || nombreVino.isEmpty()) {
+
+        if (nombreVino == null || nombreVino.isEmpty()) {
             throw new ErrorServicio("El nombre del vino no puede ser nulo");
         }
-        
+
     }
 
-    
 }
