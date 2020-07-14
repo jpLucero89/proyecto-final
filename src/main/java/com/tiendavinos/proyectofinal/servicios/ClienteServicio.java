@@ -9,6 +9,7 @@ import com.tiendavinos.proyectofinal.entidades.Cliente;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
 import java.util.Date;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -40,6 +41,61 @@ public class ClienteServicio {
         clienteRepositorio.save(cliente);
 
     }
+    
+    @Transactional
+    public void modificar(String nombre,String apellido, String mail, String clave, String clave2, Integer edad,String id) throws ErrorServicio {
+        
+        validar(nombre, apellido, mail, clave, clave2, edad);
+        
+        Optional<Cliente> resultado = clienteRepositorio.findById(id);
+        
+        if (resultado.isPresent()) {
+            
+            Cliente cliente = resultado.get();
+            cliente.setApellido(apellido);
+            cliente.setNombre(nombre);
+            cliente.setMail(mail);
+            cliente.setEdad(edad);
+            
+            String encriptada = new BCryptPasswordEncoder().encode(clave);
+            cliente.setClave(encriptada);
+            
+            clienteRepositorio.save(cliente);
+            
+        } else {
+            throw new ErrorServicio("No se encontró el usuario solicitado");
+        }
+    }
+    
+    @Transactional
+    public void deshabilitar(String id) throws ErrorServicio {
+        
+        Optional<Cliente> resultado = clienteRepositorio.findById(id);
+        
+        if (resultado.isPresent()) {
+            
+            Cliente cliente = resultado.get();
+            cliente.setBaja(new Date());
+            
+            clienteRepositorio.save(cliente);
+            
+        } else {
+            throw new Error("No se encontró el usuario solicitado");
+        }
+   }
+    
+    @Transactional
+    public void habilitar(String id) throws ErrorServicio {
+        
+        Optional<Cliente> resultado = clienteRepositorio.findById(id);
+        
+        if (resultado.isPresent()) {
+            Cliente cliente
+        }
+        
+    }
+    
+    
 
     private void validar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2) throws ErrorServicio {
         //(nombre, apellido, mail, telefono, edad, clave, clave2)
@@ -70,6 +126,8 @@ public class ClienteServicio {
         if (edad < 18) {
             throw new ErrorServicio("El usuario debe ser mayor de edad para registrarse");
         }
+        
+        
 
     }
 
