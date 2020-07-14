@@ -10,6 +10,8 @@ import com.tiendavinos.proyectofinal.entidades.Foto;
 import com.tiendavinos.proyectofinal.entidades.Vino;
 import com.tiendavinos.proyectofinal.enums.Varietal;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
+import com.tiendavinos.proyectofinal.repositorios.BodegaRepositorio;
+import com.tiendavinos.proyectofinal.repositorios.VinoRepositorio;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

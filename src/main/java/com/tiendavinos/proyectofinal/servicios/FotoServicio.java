@@ -7,6 +7,7 @@ package com.tiendavinos.proyectofinal.servicios;
 
 import com.tiendavinos.proyectofinal.entidades.Foto;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
+import com.tiendavinos.proyectofinal.repositorios.FotoRepositorio;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
