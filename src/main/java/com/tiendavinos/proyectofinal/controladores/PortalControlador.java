@@ -2,8 +2,6 @@ package com.tiendavinos.proyectofinal.controladores;
 
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.servicios.ClienteServicio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

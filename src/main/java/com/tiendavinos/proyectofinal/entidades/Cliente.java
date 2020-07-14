@@ -1,5 +1,6 @@
 package com.tiendavinos.proyectofinal.entidades;
 
+import com.tiendavinos.proyectofinal.enums.Roles;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -24,6 +25,8 @@ public class Cliente {
     private String clave;
     private String telefono;
     private Integer edad;
+
+    private Roles rol;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
@@ -183,6 +186,14 @@ public class Cliente {
      */
     public void setListadoPedido(List<Pedido> listadoPedido) {
         this.listadoPedido = listadoPedido;
+    }
+
+    public Roles getRol() {
+        return rol;
+    }
+
+    public void setRol(Roles rol) {
+        this.rol = rol;
     }
 
 }
