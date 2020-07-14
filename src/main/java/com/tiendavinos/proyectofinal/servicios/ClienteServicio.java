@@ -21,14 +21,15 @@ public class ClienteServicio {
     private ClienteRepositorio clienteRepositorio;
 
     @Transactional
-    public void registrar(String nombre, String apellido, String mail, String clave, String clave2, Integer edad) throws ErrorServicio {
+    public void registrar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2) throws ErrorServicio {
 
-        validar(nombre, apellido, mail, clave, clave2, edad);
+        validar(nombre, apellido, mail, telefono, edad, clave, clave2);
 
         Cliente cliente = new Cliente();
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
         cliente.setMail(mail);
+        cliente.setTelefono(telefono);
         cliente.setEdad(edad);
 
         String encriptada = new BCryptPasswordEncoder().encode(clave);
@@ -40,8 +41,8 @@ public class ClienteServicio {
 
     }
 
-    private void validar(String nombre, String apellido, String mail, String clave, String clave2, Integer edad) throws ErrorServicio {
-
+    private void validar(String nombre, String apellido, String mail, String telefono, Integer edad, String clave, String clave2) throws ErrorServicio {
+        //(nombre, apellido, mail, telefono, edad, clave, clave2)
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre del usuario no puede ser nulo");
         }
@@ -56,6 +57,10 @@ public class ClienteServicio {
 
         if (clave == null || clave.isEmpty() || clave.length() < 6) {
             throw new ErrorServicio("La clave del usuario no puede ser nula ni tener menos de 6 caracteres");
+        }
+
+        if (telefono == null || telefono.isEmpty()) {
+            throw new ErrorServicio("El teléfono del usuario no puede quedar vacío");
         }
 
         if (clave != clave2) {
