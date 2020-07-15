@@ -55,8 +55,9 @@ public class PedidoServicio {
             pedido.setProductos(productos);
             
         }else {
-            throw new ErrorServicio("No se encontró el pedido especificado");
+//            throw new ErrorServicio("No se encontró el pedido especificado");
         }
+        return null;
     }
 
     private Double calcularPrecioTotalPedido(List<Producto> productos) {
