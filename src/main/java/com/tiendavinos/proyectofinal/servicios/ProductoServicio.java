@@ -3,6 +3,7 @@ package com.tiendavinos.proyectofinal.servicios;
 import com.tiendavinos.proyectofinal.entidades.Bodega;
 import com.tiendavinos.proyectofinal.entidades.Foto;
 import com.tiendavinos.proyectofinal.entidades.Producto;
+import com.tiendavinos.proyectofinal.enums.Tipo;
 import com.tiendavinos.proyectofinal.enums.Varietal;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.BodegaRepositorio;
@@ -26,42 +27,83 @@ public class ProductoServicio {
     private FotoServicio fotoServicio;
 
     @Transactional
-    public void agregarProducto(String idBodega, String nombre, Varietal varietal, String anioCosecha, MultipartFile archivo) throws ErrorServicio {
+    public void agregarProducto(String idBodega, String nombre,Tipo tipo, Varietal varietal, String anioCosecha,Double precio, MultipartFile archivo) throws ErrorServicio {
 
         Optional<Bodega> resultado = bodegaRepositorio.findById(idBodega);
         if (resultado.isPresent()) {
             Bodega bodega = resultado.get();
         
         
-            validar(nombre,varietal,anioCosecha);
+            validar(nombre,anioCosecha,precio);
 
             Producto producto = new Producto();
-            producto.setNombre(nombre);
-            producto.setAnioCosecha(anioCosecha);
             producto.setBodega(bodega);
-
+            producto.setNombre(nombre);
+            producto.setTipo(tipo);
+            producto.setVarietal(varietal);
+            producto.setAnioCosecha(anioCosecha);
+            producto.setPrecio(precio);
+            
             Foto foto = fotoServicio.guardar(archivo);
             producto.setFoto(foto);
 
             productoRepositorio.save(producto);
     
+        } else{
+            throw new ErrorServicio("No existe una bodega con el identificador solicitado");
         }
     }
     
     @Transactional
-    public void modificar() {
+    public void modificar(MultipartFile archivo,String idBodega, String idProducto,String nombre,Varietal varietal,String anioCosecha,Double precio ) throws ErrorServicio {
         
-        validar(nombre)
+        validar(nombre,anioCosecha,precio);
         
-        
+        Optional<Producto> resultado = productoRepositorio.findById(idProducto);
+        if (resultado.isPresent()) {
+            Producto producto = resultado.get();
+            
+               
+            producto.setNombre(nombre);
+            producto.setVarietal(varietal);
+            producto.setAnioCosecha(anioCosecha);
+            producto.setPrecio(precio);
+
+            Foto foto = fotoServicio.guardar(archivo);
+            producto.setFoto(foto);
+
+            productoRepositorio.save(producto);
+            
+        }else{
+            throw new ErrorServicio("No existe un producto con el identificador solicitado");
+        }
+    }
+    
+    @Transactional    
+    public void eliminar(String idBodega,String idProducto) throws ErrorServicio  {
+        Optional<Producto> resultado = productoRepositorio.findById(idProducto);
+        if (resultado.isPresent()) {
+            
+            Producto producto = resultado.get();
+            productoRepositorio.delete(producto);
+            
+        }
     }
 
-    public void validar(String nombre) throws ErrorServicio {
-
+    private void validar(String nombre, String anioCosecha, Double precio) throws ErrorServicio {
+    
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre del vino no puede ser nulo");
         }
-
+        
+        if (anioCosecha == null || anioCosecha.isEmpty()) {
+            throw new ErrorServicio("El año de creacion no puede ser nulo");
+        }
+         
+        if (precio == null ) {
+            throw new ErrorServicio("El precio no puede ser nulo");
+        }
+    
     }
 
 }
