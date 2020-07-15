@@ -1,67 +1,73 @@
 <!doctype html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webwine</title>
-  <link th:href="@{/css/bootstrap-4.4.1.css}" rel="stylesheet" type="text/cs">
-  <link rel="shortcut icon" type="image/png" href="images/favicon2.png" />
-
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tienda de vinos</title>
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" type="image/png" href="images/favicon2.png"/>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/index.html">tiendadevinos</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">tiendadevinos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link " href="inicio.html">Inicio</a>
-          </li>
-        </ul>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link " href="inicio.html">Inicio</a>
+            </li>  
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <br>
-  <br>
-  <form class="col-xl-12">
-      <div class="form-group">
-        <h1>Registro</h1>
-        <form action="/registro" method="post" id="form">
-          <label for="Nombre"> Nombre</label>
-          <input type="text" class="form-control" id="Nombre" placeholder="Ingrese su nombre">
-          <label for="Apellido">Apellido</label>
-          <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido">
-          <label for="Edad"> Edad</label>
-          <input type="number" class="form-control" id="Edad" placeholder="ingrese su edad">
-          <label for="Telefono"> Telefono</label>
-          <input type="number" class="form-control" id="Telefono" placeholder="ingrese su Telefono">
-          <label for="Correo">Correo Electronico</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ingrese dirección de correo">
-          <label for="exampleInputPassword1">Clave</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ingrese la clave">
-          <label for="exampleInputPassword1">Repite la Contraseña</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repita la clave">
-          <br>
-          <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a> </p>
-          <button type="submit" class="btn btn-primary">Registrate</button>
-          <br>
-          <br>
-          <p><a href="/login">¿Ya tengo Cuenta?</a></p>
-      </div>
-    <br>
-    <br>
-  </form>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap-4.4.1.js"></script>
-
+    </nav>
+	
+</div>
+<form class="col-xl-12 offset-md-2"><br>
+  <div class="form-group">
+    <p>
+      <label for="exampleInputEmail1">Nombre</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="John">
+    </p>
+    <p>
+      <label for="exampleInputEmail2">Apellido</label>
+      <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Perez">
+    </p>
+    <p>
+      <label for="exampleInputEmail3">Edad</label>
+      <input type="number" class="form-control" id="exampleInputEmail3" placeholder="edad">
+    </p>
+    <p>
+      <label for="exampleInputEmail5">Telefono</label>
+      <input type="number" class="form-control" id="exampleInputEmail5" placeholder="2615000000">
+    </p>
+    <p>
+      <label for="exampleInputEmail4">Correo</label>
+      <input type="email" class="form-control" id="exampleInputEmail4" placeholder="johnperez@algo.com">
+    <small id="emailHelp1" class="form-text text-muted">Su correo no se comparte sin su permiso.</small></p>
+  </div>
+  <div class="form-group">
+    <p>
+      <label for="exampleInputPassword1">Contraseña</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******">
+    </p>
+    <p>
+      <label for="exampleInputPassword2">Repetir contraseña</label>
+      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="*******">
+    </p>
+  </div>
+  <div class="form-check">
+<p>&nbsp; </p>
+    <button type="submit" class="btn btn-primary">Aceptar</button>
+  </div>
+</form>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+	
 </body>
-
 </html>
