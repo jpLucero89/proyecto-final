@@ -1,14 +1,14 @@
 <!doctype html>
-<html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webwine</title>
-  <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/bootstrap-4.4.1.css}" rel="stylesheet" type="text/cs">
   <link rel="shortcut icon" type="image/png" href="images/favicon2.png" />
-  <link rel="stylesheet" href="">
+
 </head>
 
 <body>
@@ -35,11 +35,13 @@
         <h1>Registro</h1>
         <form action="/registro" method="post" id="form">
           <label for="Nombre"> Nombre</label>
-          <input type="text" class="form-control" id="Nombre" requiredplaceholder="Ingrese su nombre">
+          <input type="text" class="form-control" id="Nombre" placeholder="Ingrese su nombre">
           <label for="Apellido">Apellido</label>
           <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido">
           <label for="Edad"> Edad</label>
           <input type="number" class="form-control" id="Edad" placeholder="ingrese su edad">
+          <label for="Telefono"> Telefono</label>
+          <input type="number" class="form-control" id="Telefono" placeholder="ingrese su Telefono">
           <label for="Correo">Correo Electronico</label>
           <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ingrese dirección de correo">
           <label for="exampleInputPassword1">Clave</label>

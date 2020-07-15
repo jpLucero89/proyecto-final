@@ -27,7 +27,7 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().sameOrigin().and()
                 .authorizeRequests()
-                .antMatchers("/css/", "/js/", "/img/", "/*")
+                .antMatchers("/css/**", "/js/**", "/img/**", "/*")
                 .permitAll()
                 .and().formLogin()
                 .loginPage("/login")
