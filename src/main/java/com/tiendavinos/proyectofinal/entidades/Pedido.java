@@ -27,7 +27,7 @@ public class Pedido {
     @ManyToOne
     private Cliente cliente;
     @ManyToMany
-    private List<Producto> listadoVinos;
+    private List<Producto> productos;
     private Double precioTotal;
     private String direccionEnvio;
     private String medioDePago;
@@ -67,17 +67,14 @@ public class Pedido {
     }
 
     /**
-     * @return the listadoVinos
+     * @return the productos
      */
-    public List<Producto> getListadoVinos() {
-        return listadoVinos;
+    public List<Producto> getProductos() {
+        return productos;
     }
 
-    /**
-     * @param listadoVinos the listadoVinos to set
-     */
-    public void setListadoVinos(List<Producto> listadoVinos) {
-        this.listadoVinos = listadoVinos;
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 
     /**

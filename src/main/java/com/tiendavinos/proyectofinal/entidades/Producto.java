@@ -19,7 +19,6 @@ public class Producto {
     private String nombre;
     @ManyToOne
     private Bodega bodega;
-    private Integer capacidadBotella;
     @ManyToOne
     private Foto foto;
     private Double precio;
@@ -50,14 +49,6 @@ public class Producto {
 
     public void setBodega(Bodega bodega) {
         this.bodega = bodega;
-    }
-
-    public Integer getCapacidadBotella() {
-        return capacidadBotella;
-    }
-
-    public void setCapacidadBotella(Integer capacidadBotella) {
-        this.capacidadBotella = capacidadBotella;
     }
 
     public Foto getFoto() {
