@@ -23,7 +23,8 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect      
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        open-in-view: false
   thymeleaf:
     cache: false 
 server:

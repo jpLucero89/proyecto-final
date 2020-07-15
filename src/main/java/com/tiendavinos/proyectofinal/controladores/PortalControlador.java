@@ -24,22 +24,28 @@ public class PortalControlador {
         return "inicio";
     }
 
-    @PreAuthorize("hasAnyRole( 'ROLE_USUARIO_REGISTRADO' )")
+    @PreAuthorize("hasAnyRole( 'ROLE_USUARIO' )")
     @GetMapping("/inicio")
     public String inicio() {
         return "logeado";
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(required = false) String error, @RequestParam String logout,
-            ModelMap modelo) {
-        if (error != null) {
-            modelo.put("error", "Usuario o contraseña incorrecto");
-        }
-        if (logout != null) {
-            modelo.put("logout", "Ha cerrado sesión correctamente");
-        }
+    public String login(/*@RequestParam(required = false) String error, @RequestParam String logout,
+            ModelMap modelo*/) {
+//        if (error != null) {
+//            modelo.put("error", "Usuario o contraseña incorrecto");
+//        }
+//        if (logout != null) {
+//            modelo.put("logout", "Ha cerrado sesión correctamente");
+//        }
         return "login";
+    }
+
+    @PostMapping("/login")
+    public String procesarFormularioLogin(@RequestParam String usuario, @RequestParam String clave) {
+        //FALTA VALIDACION USUARIO Y CONTRASEÑA Y REDIRECCION A UN LUGAR ADECUADO
+        return "redirect:";
     }
 
     @GetMapping("/registro")
@@ -65,7 +71,6 @@ public class PortalControlador {
         }
         modelo.put("titulo", "Bienvenido a Tienda de Vinos");
         modelo.put("descripcion", "Tu usuario fue registrado de manera satisfactoria");
-
         return "registro-exito";
         
     }

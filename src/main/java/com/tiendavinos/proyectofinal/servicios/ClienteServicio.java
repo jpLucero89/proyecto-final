@@ -9,15 +9,22 @@ import com.tiendavinos.proyectofinal.entidades.Cliente;
 import com.tiendavinos.proyectofinal.enums.Roles;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Service
 public class ClienteServicio implements UserDetailsService {
@@ -139,17 +146,23 @@ public class ClienteServicio implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
-
-        Cliente cliente = clienteRepositorio.buscarPorMail(mail);
+    public UserDetails loadUserByUsername(String email) {
+        Cliente cliente = clienteRepositorio.buscarPorMail(email);
         if (cliente != null) {
-            //FALTAN PERMISOS CLIENTES Y ADMIN
 
-            // return user;            
+            List<GrantedAuthority> permisos = new ArrayList<>();
+
+            GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_" + cliente.getRol().toString());
+            permisos.add(p1);
+
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            session.setAttribute("cliente", cliente);
+
+            return new User(cliente.getMail(), cliente.getClave(), permisos);
         } else {
             return null;
         }
-        return null;
     }
 
 }
