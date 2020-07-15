@@ -21,13 +21,13 @@ public class PortalControlador {
 
     @GetMapping
     public String index() {
-        return "index";
+        return "inicio";
     }
 
     @PreAuthorize("hasAnyRole( 'ROLE_USUARIO_REGISTRADO' )")
     @GetMapping("/inicio")
     public String inicio() {
-        return "inicio";
+        return "logeado";
     }
 
     @GetMapping("/login")
