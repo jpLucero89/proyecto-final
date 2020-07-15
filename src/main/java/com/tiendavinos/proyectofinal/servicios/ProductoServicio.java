@@ -31,19 +31,29 @@ public class ProductoServicio {
         Optional<Bodega> resultado = bodegaRepositorio.findById(idBodega);
         if (resultado.isPresent()) {
             Bodega bodega = resultado.get();
-        }
         
-        validar(nombre);
+        
+            validar(nombre,varietal,anioCosecha);
 
-        Producto producto = new Producto();
-        producto.setNombre(nombre);
-        producto.setAnioCosecha(anioCosecha);
+            Producto producto = new Producto();
+            producto.setNombre(nombre);
+            producto.setAnioCosecha(anioCosecha);
+            producto.setBodega(bodega);
 
-        Foto foto = fotoServicio.guardar(archivo);
-        producto.setFoto(foto);
+            Foto foto = fotoServicio.guardar(archivo);
+            producto.setFoto(foto);
 
-        productoRepositorio.save(producto);
-
+            productoRepositorio.save(producto);
+    
+        }
+    }
+    
+    @Transactional
+    public void modificar() {
+        
+        validar(nombre)
+        
+        
     }
 
     public void validar(String nombre) throws ErrorServicio {
