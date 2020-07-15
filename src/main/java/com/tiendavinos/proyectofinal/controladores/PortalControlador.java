@@ -52,7 +52,7 @@ public class PortalControlador {
     public String mostrarFormularioRegistro(ModelMap modelo) {
         return "registro";
     }
-
+    
     @PostMapping("/registro")
     public String registro(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String telefono, @RequestParam Integer edad, @RequestParam String clave1, @RequestParam String clave2) throws ErrorServicio {
 
@@ -72,6 +72,11 @@ public class PortalControlador {
         modelo.put("titulo", "Bienvenido a Tienda de Vinos");
         modelo.put("descripcion", "Tu usuario fue registrado de manera satisfactoria");
         return "registro-exito";
+        
     }
-
+    @GetMapping("/prueba")
+    public String prueba(){
+        return "prueba";
+        
+    }
 }
