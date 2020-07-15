@@ -1,5 +1,7 @@
 package com.tiendavinos.proyectofinal.entidades;
 
+import com.tiendavinos.proyectofinal.enums.Tipo;
+import com.tiendavinos.proyectofinal.enums.Varietal;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,9 @@ public class Producto {
     private Foto foto;
     private Double precio;
     private String anioCosecha;
+    
+    private Tipo tipo;
+    private Varietal varietal;
 
     public Producto() {
     }
@@ -73,6 +78,22 @@ public class Producto {
 
     public void setAnioCosecha(String anioCosecha) {
         this.anioCosecha = anioCosecha;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public Varietal getVarietal() {
+        return varietal;
+    }
+
+    public void setVarietal(Varietal varietal) {
+        this.varietal = varietal;
     }
 
 }
