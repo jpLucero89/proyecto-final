@@ -1,10 +1,9 @@
-
 package com.tiendavinos.proyectofinal.enums;
 
 public enum Tipo {
-   
-    TINTO("Tinto"),BLANCO("Blanco"),ROSADO("Rosado"),ESPUMANTE("Espumante");
-    
+
+    TINTO("Tinto"), BLANCO("Blanco"), ROSADO("Rosado"), ESPUMANTE("Espumante");
+
     private final String nombreTipo;
 
     private Tipo(String nombreTipo) {
@@ -14,6 +13,5 @@ public enum Tipo {
     public String getNombreTipo() {
         return nombreTipo;
     }
-    
-    
+
 }

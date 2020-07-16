@@ -1,136 +1,82 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.tiendavinos.proyectofinal.entidades;
 
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Pedido {
-
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+public class Pedido extends AbstractEntity {
 
     @ManyToOne
     private Cliente cliente;
-    @ManyToMany
-    private List<Producto> productos;
-    private Double precioTotal;
-    private String direccionEnvio;
-    private String medioDePago;
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaModificacion;
+
+    @ManyToMany
+    private List<Vino> vinos;
+
+    private Double precioTotal;
 
     public Pedido() {
     }
 
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
+    public Pedido(Cliente cliente, Date fecha, Date fechaModificacion, List<Vino> vinos, Double precioTotal) {
+        this.cliente = cliente;
+        this.fecha = fecha;
+        this.fechaModificacion = fechaModificacion;
+        this.vinos = vinos;
+        this.precioTotal = precioTotal;
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the cliente
-     */
     public Cliente getCliente() {
         return cliente;
     }
 
-    /**
-     * @param cliente the cliente to set
-     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    /**
-     * @return the productos
-     */
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
-    }
-
-    /**
-     * @return the precioTotal
-     */
-    public Double getPrecioTotal() {
-        return precioTotal;
-    }
-
-    /**
-     * @param precioTotal the precioTotal to set
-     */
-    public void setPrecioTotal(Double precioTotal) {
-        this.precioTotal = precioTotal;
-    }
-
-    /**
-     * @return the direccionEnvio
-     */
-    public String getDireccionEnvio() {
-        return direccionEnvio;
-    }
-
-    /**
-     * @param direccionEnvio the direccionEnvio to set
-     */
-    public void setDireccionEnvio(String direccionEnvio) {
-        this.direccionEnvio = direccionEnvio;
-    }
-
-    /**
-     * @return the medioDePago
-     */
-    public String getMedioDePago() {
-        return medioDePago;
-    }
-
-    /**
-     * @param medioDePago the medioDePago to set
-     */
-    public void setMedioDePago(String medioDePago) {
-        this.medioDePago = medioDePago;
-    }
-
-    /**
-     * @return the fecha
-     */
     public Date getFecha() {
         return fecha;
     }
 
-    /**
-     * @param fecha the fecha to set
-     */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public Date getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Date fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
+
+    public List<Vino> getVinos() {
+        return vinos;
+    }
+
+    public void setVinos(List<Vino> vinos) {
+        this.vinos = vinos;
+    }
+
+    public Double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(Double precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 
 }
