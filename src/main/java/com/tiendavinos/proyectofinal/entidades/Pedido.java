@@ -1,5 +1,6 @@
 package com.tiendavinos.proyectofinal.entidades;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Pedido extends AbstractEntity {
+public class Pedido extends AbstractEntity implements Serializable {
 
     @ManyToOne
     private Cliente cliente;
@@ -17,6 +18,8 @@ public class Pedido extends AbstractEntity {
     private Date fecha;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaModificacion;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaCancelacion;
 
     @ManyToMany
     private List<Vino> vinos;
@@ -72,6 +75,14 @@ public class Pedido extends AbstractEntity {
 
     public void setPrecioTotal(Double precioTotal) {
         this.precioTotal = precioTotal;
+    }
+
+    public Date getFechaCancelacion() {
+        return fechaCancelacion;
+    }
+
+    public void setFechaCancelacion(Date fechaCancelacion) {
+        this.fechaCancelacion = fechaCancelacion;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.tiendavinos.proyectofinal.servicios;
 
-
 import com.tiendavinos.proyectofinal.entidades.Cliente;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
@@ -14,13 +13,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClienteServicio {
 
-    //Crear, modificar, dardealta, dardebaja
     @Autowired
     private ClienteRepositorio clienteRepositorio;
 
     @Transactional
-    public Cliente registrarCliente(String nombre, String apellido, String email, String telefono, String password, String password2) {
-        //FALTA VALIDACION
+    public Cliente registrarCliente(String nombre, String apellido, String email, String telefono, String password, String password2) throws ErrorServicio {
+
+        validarDatos(nombre, apellido, email, telefono, password, password2);
         Cliente cliente = new Cliente(nombre, apellido, email, telefono, password);
         cliente.setAlta(new Date());
         cliente.setPedidos(new ArrayList<>());
@@ -40,6 +39,7 @@ public class ClienteServicio {
             cliente.setApellido(apellido);
             cliente.setEmail(email);
             cliente.setTelefono(telefono);
+            cliente.setPassword(password);
             clienteRepositorio.save(cliente);
 
         } else {
@@ -87,6 +87,33 @@ public class ClienteServicio {
             clienteRepositorio.delete(cliente);
         } else {
             throw new ErrorServicio("No hemos podido encontrar el cliente solicitado");
+        }
+    }
+
+    private void validarDatos(String nombre, String apellido, String email, String telefono, String password, String password2) throws ErrorServicio {
+
+        if (nombre == null || nombre.isEmpty()) {
+            throw new ErrorServicio("El nombre no puede ser nulo");
+        }
+
+        if (apellido == null || apellido.isEmpty()) {
+            throw new ErrorServicio("El apellido no puede ser nulo");
+        }
+
+        if (email == null || email.isEmpty()) {
+            throw new ErrorServicio("El email no puede ser nulo");
+        }
+
+        if (telefono == null || telefono.isEmpty()) {
+            throw new ErrorServicio("El telefono no puede ser nulo");
+        }
+
+        if (password == null || password.isEmpty() || password.length() <= 6) {
+            throw new ErrorServicio("La contraseña no puede ser nula y dene tener al menos 6 caracteres");
+        }
+
+        if (!password.equals(password2)) {
+            throw new ErrorServicio("Las claves no coinciden");
         }
     }
 }
