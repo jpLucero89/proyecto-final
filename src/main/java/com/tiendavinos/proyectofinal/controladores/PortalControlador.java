@@ -45,6 +45,8 @@ public class PortalControlador {
     @PostMapping("/login")
     public String procesarFormularioLogin(@RequestParam String usuario, @RequestParam String clave) {
         //FALTA VALIDACION USUARIO Y CONTRASEÑA Y REDIRECCION A UN LUGAR ADECUADO
+        System.out.println(usuario);
+        System.out.println(clave);
         return "redirect:";
     }
 
@@ -54,29 +56,13 @@ public class PortalControlador {
     }
     
     @PostMapping("/registro")
-    public String registro(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String mail, @RequestParam String telefono, @RequestParam Integer edad, @RequestParam String clave1, @RequestParam String clave2) throws ErrorServicio {
+    public String registro() throws ErrorServicio {
 
-        try {
-            clienteServicio.registrar(nombre, apellido, mail, telefono, edad, clave2, clave2);
-        } catch (ErrorServicio e) {
-            modelo.put("error", e.getMessage());
-            modelo.put("nombre", nombre);
-            modelo.put("apellido", apellido);
-            modelo.put("mail", mail);
-            modelo.put("telefono", telefono);
-            modelo.put("edad", edad);
-            modelo.put("clave1", clave1);
-            modelo.put("clave2", clave2);
-            return "registro";
-        }
-        modelo.put("titulo", "Bienvenido a Tienda de Vinos");
-        modelo.put("descripcion", "Tu usuario fue registrado de manera satisfactoria");
-        return "registro-exito";
-        
+       
+        return "registro-exito";        
     }
     @GetMapping("/prueba")
     public String prueba(){
         return "prueba";
-        
     }
 }

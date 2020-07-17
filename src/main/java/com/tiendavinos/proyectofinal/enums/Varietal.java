@@ -2,16 +2,19 @@ package com.tiendavinos.proyectofinal.enums;
 
 public enum Varietal {
 
-//    MALBEC, CABERNET_SAUVIGNON, SAUVIGNON_BLANC, MERLOT, CHARDONNAY, TEMPRANILLO, CABERNET_FRANC;
-//
-//    private final String varietal;
-//    
-//    private Varietal(String varietal) {
-//        this.varietal = varietal;
-//    }
-//
-//    public String getVarietal() {
-//        return varietal;
-//    }
+    MALBEC("Malbec"), CABERNET_SAUVIGNON("Cabernet Sauvignon"), CABERNET_FRANC("Cabernet Franc"),
+    CHARDONNAY("Chardonnay"), TORRONTES("Torrontés"), ALBARINO("Albariño"), SAUVIGNON_BLANC("Sauvignon Blanc"),
+    BRUT("Brut"), EXTRA_BRUT("Extra Brut"), BRUT_NATURE("Brut Nature");
+
+    private final String nombre;
+
+    private Varietal(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+
+    }
 
 }

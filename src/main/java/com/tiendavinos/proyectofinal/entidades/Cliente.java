@@ -1,113 +1,94 @@
 package com.tiendavinos.proyectofinal.entidades;
 
-import com.tiendavinos.proyectofinal.enums.Roles;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Cliente {
-
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+public class Cliente extends AbstractEntity implements Serializable {
 
     private String nombre;
     private String apellido;
-    private String mail;
-    private String clave;
+    private String email;
     private String telefono;
-    private Integer edad;
-
-    private Roles rol;
-
+    private String password;
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date baja;
-    private String medioDePago;
-    @OneToMany
-    private List<Pedido> listadoPedido;
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos;
 
     public Cliente() {
     }
 
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
+    public Cliente(String nombre, String apellido, String email, String telefono, String password) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.telefono = telefono;
+        this.password = password;
+       
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the nombre
-     */
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * @param nombre the nombre to set
-     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    /**
-     * @return the apellido
-     */
     public String getApellido() {
         return apellido;
     }
 
-    /**
-     * @param apellido the apellido to set
-     */
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-    /**
-     * @return the mail
-     */
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    /**
-     * @param mail the mail to set
-     */
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    /**
-     * @return the clave
-     */
-    public String getClave() {
-        return clave;
+    public String getPassword() {
+        return password;
     }
 
-    /**
-     * @param clave the clave to set
-     */
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Date getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Date alta) {
+        this.alta = alta;
+    }
+
+    public Date getBaja() {
+        return baja;
+    }
+
+    public void setBaja(Date baja) {
+        this.baja = baja;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
     public String getTelefono() {
@@ -118,82 +99,9 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    /**
-     * @return the edad
-     */
-    public Integer getEdad() {
-        return edad;
-    }
-
-    /**
-     * @param edad the edad to set
-     */
-    public void setEdad(Integer edad) {
-        this.edad = edad;
-    }
-
-    /**
-     * @return the alta
-     */
-    public Date getAlta() {
-        return alta;
-    }
-
-    /**
-     * @param alta the alta to set
-     */
-    public void setAlta(Date alta) {
-        this.alta = alta;
-    }
-
-    /**
-     * @return the baja
-     */
-    public Date getBaja() {
-        return baja;
-    }
-
-    /**
-     * @param baja the baja to set
-     */
-    public void setBaja(Date baja) {
-        this.baja = baja;
-    }
-
-    /**
-     * @return the medioDePago
-     */
-    public String getMedioDePago() {
-        return medioDePago;
-    }
-
-    /**
-     * @param medioDePago the medioDePago to set
-     */
-    public void setMedioDePago(String medioDePago) {
-        this.medioDePago = medioDePago;
-    }
-
-    /**
-     * @return the listadoPedido
-     */
-    public List<Pedido> getListadoPedido() {
-        return listadoPedido;
-    }
-
-    /**
-     * @param listadoPedido the listadoPedido to set
-     */
-    public void setListadoPedido(List<Pedido> listadoPedido) {
-        this.listadoPedido = listadoPedido;
-    }
-
-    public Roles getRol() {
-        return rol;
-    }
-
-    public void setRol(Roles rol) {
-        this.rol = rol;
+    @Override
+    public String getId() {
+        return id;
     }
 
 }

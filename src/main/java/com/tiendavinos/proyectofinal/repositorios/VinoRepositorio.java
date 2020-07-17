@@ -1,10 +1,11 @@
 package com.tiendavinos.proyectofinal.repositorios;
 
-import com.tiendavinos.proyectofinal.entidades.Bodega;
+
+import com.tiendavinos.proyectofinal.entidades.Vino;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BodegaRepositorio extends JpaRepository<Bodega, String> {
+public interface VinoRepositorio extends JpaRepository<Vino, String> {
 
 }
