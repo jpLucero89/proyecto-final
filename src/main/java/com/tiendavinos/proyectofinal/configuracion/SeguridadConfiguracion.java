@@ -1,6 +1,7 @@
 package com.tiendavinos.proyectofinal.configuracion;
 
 import com.tiendavinos.proyectofinal.servicios.ClienteServicio;
+import static javafx.scene.input.KeyCode.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,8 +20,10 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
     private ClienteServicio clienteServicio;
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(clienteServicio).passwordEncoder(new BCryptPasswordEncoder());
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+        auth
+            .userDetailsService((T) clienteServicio)
+            .passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
