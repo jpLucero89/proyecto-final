@@ -6,13 +6,20 @@ import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClienteServicio {
+public class ClienteServicio implements UserDetailsService {
 
     //Crear, modificar, dardealta, dardebaja
     @Autowired
@@ -47,7 +54,7 @@ public class ClienteServicio {
         }
         return cliente;
     }
-
+    
     @Transactional
     public void deshabilitarCliente(String idCliente) throws ErrorServicio {
         Cliente cliente = null;
@@ -89,4 +96,27 @@ public class ClienteServicio {
             throw new ErrorServicio("No hemos podido encontrar el cliente solicitado");
         }
     }
+    
+    
+
+    
+    @Override
+    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {  
+        Cliente cliente = clienteRepositorio.buscarPorMail(mail);
+        if (cliente != null) {
+            
+            List<GrantedAuthority> permisos = new ArrayList<>();
+            
+            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO");
+            permisos.add(p1);
+            
+            User user = new User(cliente.getEmail(),cliente.getPassword(),permisos);
+            return user;
+            
+        }else{
+            return null;
+        }
+    }
+    
+    
 }
