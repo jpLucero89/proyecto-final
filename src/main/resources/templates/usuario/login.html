@@ -33,7 +33,7 @@
         <div th:if="${param.logout}">
             You have been logged out.
         </div>-->
-        <form class="col-xl-12 offset-md-2"><br>
+        <form class="col-xl-12 offset-md-2" action="/logincheck" method="POST"><br>                                                                           
             <div class="form-group">
                 <label for="exampleInputEmail1">Dirección de correo</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ingrese dirección de correo">
