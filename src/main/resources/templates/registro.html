@@ -25,42 +25,52 @@
         </div>
       </div>
     </nav>
-<form class="col-xl-12 offset-md-2"><br>
+<form class="formulario-form" action="/registrar" method="POST"><br>
+  <h2>Registro</h2>
   <div class="form-group">
     <p>
       <label for="exampleInputEmail1">Nombre</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="John">
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su Nombre">
     </p>
+    <br>
     <p>
       <label for="exampleInputEmail2">Apellido</label>
-      <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Perez">
+      <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Ingrese su Apellido">
     </p>
+    <br>
     <p>
       <label for="exampleInputEmail3">Edad</label>
-      <input type="number" class="form-control" id="exampleInputEmail3" placeholder="edad">
+      <input type="number" class="form-control" id="exampleInputEmail3" placeholder="Ingrese su Edad">
     </p>
+    <br>
     <p>
       <label for="exampleInputEmail5">Telefono</label>
-      <input type="number" class="form-control" id="exampleInputEmail5" placeholder="2615000000">
+      <input type="number" class="form-control" id="exampleInputEmail5" placeholder="Ingrese su Num de telefono">
     </p>
+    <br>
     <p>
       <label for="exampleInputEmail4">Correo</label>
-      <input type="email" class="form-control" id="exampleInputEmail4" placeholder="johnperez@algo.com">
-    <small id="emailHelp1" class="form-text text-muted">Su correo no se comparte sin su permiso.</small></p>
+      <input type="email" class="form-control" id="exampleInputEmail4" placeholder="Ingrese su Correo">
+    
   </div>
+  <br>
   <div class="form-group">
     <p>
       <label for="exampleInputPassword1">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******">
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su Contraseña">
     </p>
+    <br>
     <p>
       <label for="exampleInputPassword2">Repetir contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="*******">
+      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Repita su Contraseña">
     </p>
   </div>
+  <br>
   <div class="form-check">
-  <button type="submit" class="btn btn-primary">Aceptar</button>
+    <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
+    <button type="submit" class="btn btn-primary">Registrar</button>
   </div>
+  <p><a href="/login">¿Ya tengo Cuenta?</a></p>
 </form>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/popper.min.js"></script>
