@@ -20,7 +20,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClienteServicio implements UserDetailsService {
 
-    //Crear, modificar, dardealta, dardebaja
+    @Autowired
+    private NotificacionServicio notificacionServicio;
+    
     @Autowired
     private ClienteRepositorio clienteRepositorio;
 
@@ -33,7 +35,10 @@ public class ClienteServicio implements UserDetailsService {
         cliente.setAlta(new Date());
         cliente.setPedidos(new ArrayList<>());
         clienteRepositorio.save(cliente);
+        
+        notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
         return cliente;
+        
     }
     
     @Transactional
