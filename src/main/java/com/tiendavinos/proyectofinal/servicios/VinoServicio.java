@@ -1,6 +1,5 @@
 package com.tiendavinos.proyectofinal.servicios;
 
-
 import com.tiendavinos.proyectofinal.entidades.Proveedor;
 import com.tiendavinos.proyectofinal.entidades.Vino;
 import com.tiendavinos.proyectofinal.enums.Tipo;
@@ -84,6 +83,25 @@ public class VinoServicio {
             }
         } else {
             throw new ErrorServicio("No se ha encontrado el vino especificado");
+        }
+    }
+
+    private void validarDatos(String marca, String cosecha, Tipo tipo, Varietal varietal, Double precio) throws ErrorServicio {
+
+        if (marca == null || marca.isEmpty()) {
+            throw new ErrorServicio("La marca no puede quedar vacía");
+        }
+
+        if (cosecha == null || cosecha.isEmpty()) {
+            throw new ErrorServicio("La cosecha no puede quedar vacía");
+        }
+
+        if (varietal == null) {
+            throw new ErrorServicio("Debe seleccionar un varietal");
+        }
+
+        if (precio == null || precio.isNaN()) {
+            throw new ErrorServicio("El precio no puede quedar vacío y debe ser un número");
         }
     }
 

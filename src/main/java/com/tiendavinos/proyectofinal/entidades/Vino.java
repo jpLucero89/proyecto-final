@@ -1,6 +1,5 @@
 package com.tiendavinos.proyectofinal.entidades;
 
-
 import com.tiendavinos.proyectofinal.enums.Producto;
 import com.tiendavinos.proyectofinal.enums.Tipo;
 import com.tiendavinos.proyectofinal.enums.Varietal;
@@ -24,7 +23,7 @@ public class Vino extends AbstractEntity implements Serializable {
     @ManyToOne
     private Proveedor proveedor;
     @ManyToMany(mappedBy = "vinos")
-    private List<Pedido> pedidos;
+    private List<Pedido> vendidos;
 
     public Vino() {
 
@@ -103,6 +102,14 @@ public class Vino extends AbstractEntity implements Serializable {
 
     public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public List<Pedido> getVendidos() {
+        return vendidos;
+    }
+
+    public void setVendidos(List<Pedido> vendidos) {
+        this.vendidos = vendidos;
     }
 
     @Override
