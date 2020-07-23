@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tienda de vinos</title>
+        <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" type="image/png" href="images/favicon2.png"/>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">tiendadevinos</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="inicio">Inicio</a>
+                        </li>  
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <form class="formulario-form" action="/registro" method="post"><br>
+            <h2>Registro</h2>
+            <div class="form-group">
+                <label>Nombre:
+                    <input class="form-control" th:field="${cliente.nombre}" placeholder="Ingrese su Nombre"/>
+                </label>
+                <p class="error" th:errors="${cliente.nombre}" style="color: red;"></p>
+
+            </div>    
+
+            <br>
+            <div class="form-group">
+                <label>Apellido
+                    <input class="form-control" th:field="${cliente.apellido}" placeholder="Ingrese su Apellido">
+                </label>
+                <p class="error" th:errors="${cliente.apellido}" style="color: red;"></p>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Edad
+                    <input class="form-control" th:field="${cliente.edad}" placeholder="Ingrese su Edad">
+                </label>
+                <p class="error" th:errors="${cliente.edad}" style="color: red;"></p>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Telefono
+                    <input class="form-control"  th:field="${cliente.telefono}" placeholder="Ingrese su Num de telefono">
+                </label>
+                <p class="error" th:errors="${cliente.telefono}" style="color: red;"></p>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Correo
+                    <input class="form-control"  th:field="${cliente.email}" placeholder="Ingrese su Correo">
+                </label>
+                <p class="error" th:errors="${cliente.email}" style="color: red;"></p>
+
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Contraseña
+                    <input type="password" class="form-control"  th:field="${cliente.password}" placeholder="Ingrese su Contraseña">
+                </label>
+                <p class="error" th:errors="${cliente.password}" style="color: red;"></p>
+            </div>
+            <br>
+            <br>
+            <div class="form-check">
+                <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+            <p><a href="/login">¿Ya tengo Cuenta?</a></p>
+        </form>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap-4.4.1.js"></script>
+
+    </body>
+</html>

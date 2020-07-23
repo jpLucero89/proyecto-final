@@ -3,19 +3,36 @@ package com.tiendavinos.proyectofinal.entidades;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Cliente extends AbstractEntity implements Serializable {
 
+    @NotNull
+    @Size(min = 3, message = "Debe ingresar un nombre de al menos 3 caracteres")
     private String nombre;
+    @NotNull
+    @Size(min = 3, message = "Debe ingresar un apellido de al menos 3 caracteres")
     private String apellido;
+    @Min(value = 18, message = "Debe ser mayor de 18 años para pode registrarse")
+    private Integer edad;
+
+    @NotNull(message = "Debe ingresar un e-mail válido")
+    @Email(message = "E-mail no válido")
     private String email;
     private String telefono;
+    @NotNull
+    @Size(min = 6, max = 50, message = "Debe ingresar entre 6 y 50 caracteres alfanuméricos")
     private String password;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
     @Temporal(TemporalType.TIMESTAMP)
@@ -26,13 +43,13 @@ public class Cliente extends AbstractEntity implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String email, String telefono, String password) {
+    public Cliente(String nombre, String apellido, Integer edad, String email, String telefono, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.telefono = telefono;
         this.password = password;
-       
+
     }
 
     public String getNombre() {
@@ -49,6 +66,14 @@ public class Cliente extends AbstractEntity implements Serializable {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
     }
 
     public String getEmail() {
