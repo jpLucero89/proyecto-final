@@ -53,9 +53,6 @@ public class PortalControlador {
 
     @PostMapping("/login")
     public String procesarFormularioLogin(@RequestParam String usuario, @RequestParam String clave) {
-        //FALTA VALIDACION USUARIO Y CONTRASEÑA Y REDIRECCION A UN LUGAR ADECUADO
-        System.out.println(usuario);
-        System.out.println(clave);
         return "redirect:";
     }
 
