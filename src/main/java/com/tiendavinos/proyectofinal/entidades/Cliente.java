@@ -7,14 +7,24 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Cliente extends AbstractEntity implements Serializable {
-
+    @Size(min=5,max=15,message="El nombre debe tener mas de 5 letras y menos de 15")    
     private String nombre;
+    @Size(min=5,max=15,message="El nombre debe tener mas de 5 letras y menos de 15") 
     private String apellido;
+    @Email
     private String email;
+    @NotNull(message="La edad no puede ir vacio") 
+    private String edad;
+    @NotNull(message="El telefono no puede ir vacio") 
     private String telefono;
+    @Pattern(regexp="[A-Z0-9]+",message="El codigo solo puede tener letras mayuscalas o números")
     private String password;
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
@@ -102,6 +112,14 @@ public class Cliente extends AbstractEntity implements Serializable {
     @Override
     public String getId() {
         return id;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
     }
 
 }

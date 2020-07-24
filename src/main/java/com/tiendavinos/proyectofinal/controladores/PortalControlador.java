@@ -1,23 +1,32 @@
 package com.tiendavinos.proyectofinal.controladores;
 
+import com.tiendavinos.proyectofinal.entidades.Cliente;
 import com.tiendavinos.proyectofinal.enums.Roles;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
+import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
 import com.tiendavinos.proyectofinal.servicios.ClienteServicio;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class PortalControlador {
 
     @Autowired
     private ClienteServicio clienteServicio;
+
+    @Autowired
+    private ClienteRepositorio clienteRepositorio;
 
     @GetMapping
     public String index() {
@@ -51,18 +60,24 @@ public class PortalControlador {
     }
 
     @GetMapping("/registro")
-    public String mostrarFormularioRegistro(ModelMap modelo) {
+    public String mostrarFormularioRegistro(Model modelo) {
+        modelo.addAttribute(new Cliente());
         return "registro";
     }
-    
-    @PostMapping("/registro")
-    public String registro() throws ErrorServicio {
 
-       
-        return "registro-exito";        
+    @PostMapping("/registro")
+    public String registro(@ModelAttribute @Valid Cliente cliente, Errors error, Model model) throws ErrorServicio {
+
+        if (error.hasErrors()) {
+            model.addAttribute("errores", error);
+            return "registro";
+        }
+        clienteRepositorio.save(cliente);
+        return "exito";
     }
+
     @GetMapping("/prueba")
-    public String prueba(){
+    public String prueba() {
         return "prueba";
     }
 }
