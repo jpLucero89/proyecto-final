@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tienda de vinos</title>
-    viktor
+
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" type="image/png" href="images/favicon2.png" />
 </head>
@@ -36,6 +36,7 @@
         <div th:if="${param.logout}">
             You have been logged out.
         </div>-->
+<section class="form-register">     
     <form class="formulario-form" action="/logincheck" method="POST"><br>
         <h2>Iniciar Sesión</h2>
         <div class="form-group">
@@ -48,6 +49,7 @@
             <button type="submit" class="btn btn-primary">Aceptar</button>
         </div>
     </form>
+</section>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.4.1.js"></script>
