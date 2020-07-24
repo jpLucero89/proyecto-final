@@ -45,6 +45,7 @@ public class ClienteServicio implements UserDetailsService {
     public void registrarCliente(Cliente cliente){
         cliente.setAlta((new Date()));
         clienteRepositorio.save(cliente);
+        notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
     }
 
     @Transactional

@@ -25,10 +25,7 @@ public class PortalControlador {
     
     @Autowired
     private ClienteServicio clienteServicio;
-    
-    @Autowired
-    private ClienteRepositorio clienteRepositorio;
-    
+
     @GetMapping
     public String index() {
         return "inicio";
