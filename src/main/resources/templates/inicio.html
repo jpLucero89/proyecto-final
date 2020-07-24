@@ -1,124 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>tienda de vinos</title>
-	<link rel="shortcut icon" type="image/png" href="images/favicon2.png"/>                     AGREGAR BOTON DE LOGOUT, EL BOTON SOLO REDIRIGE (VIDEO 6 DE MVC DE EGG)
-    <!-- Bootstrap -->
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">tiendadevinos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="blancos">Blancos</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="tintos">Tintos</a>
-		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" href="blancos">Rosados</a>
-		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" href="blancos">Espumantes</a>
-   	      </div>
- 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Bodegas</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link " href="#">Nosotros</a>
-            </li>  
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="registro">Registro</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login">Login</a>
-                              
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  <div class="container mt-3">
-    <div class="row">
-        <div class="col-12">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-              <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="images/slider1.png" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h4>Amplio catálogo</h4>
-                  <p>Vinos de exportación</p>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>tienda de vinos</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="images/favicon2.png"/>  
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">tiendadevinos</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="blancos">Blancos</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="tintos">Tintos</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="rosados">Rosados</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="espumantes">Espumantes</a>
+                            </div>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="listaBodegas">Bodegas</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link " href="#">Nosotros</a>
+                        </li>  
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="registro">Registro</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="login">Login</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/slider2.png" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h4>Varietales blancos</h4>
-                  <p>Gran selección</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/slider3.png" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h4>Adquisición por pack</h4>
-                  <p>Aproveche nuestras ofertas por pack </p>
-                </div>
-              </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
-          </div>
+        </nav>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="images/slider1.png" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h4>Amplio catálogo</h4>
+                                    <p>Vinos de exportación</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="images/slider2.png" alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h4>Varietales blancos</h4>
+                                    <p>Gran selección</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="images/slider3.png" alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h4>Adquisición por pack</h4>
+                                    <p>Aproveche nuestras ofertas por pack </p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
-        <div class="col-md-4 col-lg-5 col-6">
-          <address>
-            <strong>MyStoreFront, Inc.</strong><br>
-            Indian Treasure Link<br>
-            Quitman, WA, 99110-0219<br>
-            <abbr title="Phone">P:</abbr> (123) 456-7890
-          </address>
-          <address>
-            <strong>Full Name</strong><br>
-            <a href="mailto:#">first.last@example.com</a>
-          </address>
-        </div>
-    <footer class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Derechos reservados © tienda de vinos.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.4.1.js"></script>
-  </body>
+        <hr>
+        <h2 class="text-center">LOS MÁS DESTACADOS</h2>
+        <hr>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 pb-1 pb-md-0">
+                    <div class="card">
+                        <img class="card-img-top" src="images/vinotinto1.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">CabernEgg</h5>
+                            <p class="card-text">Delicado sabor, ideal para acompañar pastas y productos marinos de sartén. De perfume suave y penetrante.</p>
+                            <a href="#" class="btn btn-primary">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 pb-1 pb-md-0">
+                    <div class="card">
+                        <img class="card-img-top" src="images/vinotinto2.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">BLEND</h5>
+                            <p class="card-text">Notas ideales para compañar picadas y platos fríos. Producto originario del sur de la provincia de Mendoza. </p>
+                            <a href="#" class="btn btn-primary">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 pb-1 pb-md-0">
+                    <div class="card">
+                        <img class="card-img-top" src="images/holyNavy.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">HOLY-NAVY</h5>
+                            <p class="card-text">Producto regional del este de Mendoza, ideal para <strong>rugbiers</strong> que adoran derribar árboles con su fuerza.</p>
+                            <a href="#" class="btn btn-primary">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="container text-white bg-dark p-4">
+                <div class="row">
+                    <div class="col-6 col-md-8 col-lg-7">
+                        <div class="row text-center">
+                            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                <ul class="list-unstyled">
+                                    <li> <a class="btn-link" href="bodega">Bodega López</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Bianchi</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Escorihuela</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Trapiche</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Piattelli</a> </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                <ul class="list-unstyled">
+                                    <li> <a class="btn-link" href="bodega">Bodega Santa Julia</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Séptima</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Cicchitti</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Zuccardi</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Pulenta</a> </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                <ul class="list-unstyled">
+                                    <li> <a class="btn-link" href="bodega">Bodega Crotta</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Cafayate</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Trivento</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Tempus</a> </li>
+                                    <li> <a class="btn-link" href="bodega">Bodega Alta Vista</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-5">
+                        <address>
+                            <strong>TiendaDeVinos, Inc.</strong><strong> // Mesa 1</strong><br>
+                            Berutti 6000<br>
+                            Maipú, MENDOZA - Argentina, CP.5513<br>
+                            <abbr title="Phone">Tel:</abbr> (261) 580-9090
+                            <a href="mailto:tiendadevinos@tiendavinos.com">tiendadevinos@tiendavinos.com</a>
+                        </address>
+                    </div>
+                </div>
+            </div>
+            <footer class="text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Copyright © tiendadevinos. Derechos reservados.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="js/jquery-3.4.1.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="js/popper.min.js"></script>
+            <script src="js/bootstrap-4.4.1.js"></script>
+    </body>
 </html>

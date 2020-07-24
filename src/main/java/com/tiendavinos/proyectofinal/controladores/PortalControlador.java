@@ -25,9 +25,7 @@ public class PortalControlador {
     @Autowired
     private ClienteServicio clienteServicio;
 
-    @Autowired
-    private ClienteRepositorio clienteRepositorio;
-
+    
     @GetMapping
     public String index() {
         return "inicio";
@@ -72,12 +70,14 @@ public class PortalControlador {
             model.addAttribute("errores", error);
             return "registro";
         }
-        clienteRepositorio.save(cliente);
+        clienteServicio.registrarCliente(cliente);
         return "exito";
     }
 
-    @GetMapping("/prueba")
-    public String prueba() {
-        return "prueba";
-    }
+    
+    
+    
+    
+    
+    
 }
