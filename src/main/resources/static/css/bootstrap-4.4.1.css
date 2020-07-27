@@ -60,9 +60,23 @@ html {
   box-shadow: 7px 13px 37px #000000;
 
 }
+#tit{
+padding-left: 110px;
+}
 .form-register h4{
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 18px;
+
+  padding-left: 120px;
+}
+#titulo{
+  padding-left: 100px;
+}
+#registroo{
+  padding-left: 250px;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 200;
+  font-size: 40px;
 
 }
 .controls{
@@ -73,12 +87,12 @@ html {
   margin-bottom: 16px;
   border: 1px solid #472830;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 12px;
 }
 .form-register p{
   height:40px;
   text-align: center;
-  font-size: 18px; 
+  font-size: 12px; 
 }
 .form-register a{
   color: white;
@@ -95,7 +109,7 @@ button.btn.btn-primary {
   padding: 12px;
   color: black;
   margin: 30px 0;
-  font-size: 16px;
+  font-size: 14px;
 
 }
 
