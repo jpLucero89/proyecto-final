@@ -17,7 +17,7 @@ public class NotificacionServicio {
     public void enviar(String cuerpo, String titulo, String mail) {
         SimpleMailMessage mensaje = new SimpleMailMessage();
         mensaje.setTo(mail);
-        mensaje.setFrom("ejemplo@gmail.com");
+        mensaje.setFrom("vinotecaonline20@gmail.com");
         mensaje.setSubject(titulo);
         mensaje.setText(cuerpo);
         
