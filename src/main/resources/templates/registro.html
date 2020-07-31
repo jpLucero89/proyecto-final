@@ -1,66 +1,95 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tienda de vinos</title>
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="images/favicon2.png" />
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tienda de vinos</title>
+        <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" type="image/png" href="images/marca.png"/>
+    </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">tiendadevinos</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="inicio">Inicio</a>
-                    </li>
-                </ul>
+    <body class="text-center">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="inicio">TIENDA DE VINOS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="inicio"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                                </svg> Inicio</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <section class="form-register">
-        <form class="formulario-form" action="/registro" method="post"><br>
-            <h4>Registro</h>
-            <label>Nombre </label>
-            <input class="controls" th:field="${cliente.nombre}" placeholder="Ingrese su Nombre" />
-            <p class="error" th:errors="${cliente.nombre}" style="color: red;"></p>
-            <label>Apellido</label>
-            <input class="controls" th:field="${cliente.apellido}" placeholder="Ingrese su Apellido">
-            <p class="error" th:errors="${cliente.apellido}" style="color: red;"></p>
-            <label>Edad </label>
+        </nav>
+        <section class="container-formulario"><br>
             <br>
-            <input class="controls" th:field="${cliente.edad}" placeholder="Ingrese su Edad">
-            <p class="error" th:errors="${cliente.edad}" style="color: red;"></p>
-            <label>Telefono </label>
-            <input class="controls" th:field="${cliente.telefono}"
-                placeholder="Ingrese su Num de telefono">
-            <p class="error" th:errors="${cliente.telefono}" style="color: red;"></p>
-            <label>Correo</label>
-            <br>
-            <input class="controls" th:field="${cliente.email}" placeholder="Ingrese su Correo">
-            <p class="error" th:errors="${cliente.email}" style="color: red;"></p>
-            <label>Contraseña</label>
-            <br>
-            <input type="password" class="controls" th:field="${cliente.password}" placeholder="Ingrese su Contraseña">
-            <p class="error" th:errors="${cliente.password}" style="color: red;"></p>
-            <p>Estoy de acuerdo con <br><a href="#">Terminos y condiciones</a></p>
-            <input class="controls" type="submit" name="btn btn-primary" value="Registrar"/>
-            <p><a href="/login">¿Ya tengo Cuenta?</a></p>
-        </form>
-    </section>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.4.1.js"></script>
+            <form class="form-signin card-body" action="/registro" method="post">
+                <div>
+                    <img class="mb-3" src="images/marcas tienda vinos.svg" alt="" width="120" height="120">
+                    <h1 class="h3 mb-3 font-weight-normal">TIENDA DE VINOS</h1>
+                    <div class="card-footer">
+                        <h4>Registro</h4>
+                    </div>    
+                </div><br>
+                <div class="row justify-content-md-center">
+                    <div class="col-12 md-6 mb-3">
+                        <input class="form-control" th:field="${cliente.nombre}" placeholder="Nombre" />
+                        <p class="error" th:errors="${cliente.nombre}" style="color: red;"></p>
+                    </div>
 
-</body>
+                    <div class="col-12 md-6 mb-3">
+                        <input class="form-control" th:field="${cliente.apellido}" placeholder="Apellido">
+                        <p class="error" th:errors="${cliente.apellido}" style="color: red;"></p>
+                    </div>
+
+                    <div class="col-12 md-6 mb-3">
+                        <input class="form-control" th:field="${cliente.edad}" placeholder="Edad">
+                        <p class="error" th:errors="${cliente.edad}" style="color: red;"></p>
+                    </div>
+
+                    <div class="col-12 md-6 mb-3">
+                        <input class="form-control" th:field="${cliente.telefono}" placeholder="Telefono">
+                        <p class="error" th:errors="${cliente.telefono}" style="color: red;"></p>
+                    </div>
+
+                    <div class="col-12 md-6 mb-3">
+                        <input class="form-control" th:field="${cliente.email}" placeholder="Correo">
+                        <p class="error" th:errors="${cliente.email}" style="color: red;"></p>
+                    </div>
+
+                    <div class="col-12 md-6 mb-3">
+                        <input type="password" class="form-control" th:field="${cliente.password}" placeholder="Contraseña">
+                        <p class="error" th:errors="${cliente.password}" style="color: red;"></p>
+                    </div>
+
+                    <div class="col-12 md-6 mb-3">
+                        <input type="password" class="form-control" th:field="${cliente.password}" placeholder="confirmar contraseña">
+                        <p class="error" th:errors="${cliente.password}" style="color: red;"></p>
+                    </div>
+
+                    <div class="col-12 md-6 mb-3">
+                        <p>Estoy de acuerdo con <br><a href="#">Terminos y condiciones</a></p>
+                    </div>
+                    <div class="card-footer col-12 md-6 mb-3">
+                        <input class="btn btn-info" type="submit" name="btn btn-primary" value="Registrar"/>
+                        <p><a href="/login">¿Ya tengo Cuenta?</a></p>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap-4.4.1.js"></script>
+
+    </body>
 
 </html>

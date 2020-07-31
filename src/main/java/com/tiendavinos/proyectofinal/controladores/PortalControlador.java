@@ -31,11 +31,11 @@ public class PortalControlador {
         return "inicio";
     }
 
-    @PreAuthorize("hasAnyRole( 'ROLE_USUARIO' )")
-    @GetMapping("/inicio")
-    public String inicio() {
-        return "logeado";
-    }
+//    @PreAuthorize("hasAnyRole( 'ROLE_USUARIO' )")
+//    @GetMapping("/inicio")
+//    public String inicio() {
+//        return "logeado";
+//    }
 
     @GetMapping("/login")
     public String login(/*@RequestParam(required = false) String error, @RequestParam String logout,
@@ -73,11 +73,64 @@ public class PortalControlador {
         clienteServicio.registrarCliente(cliente);
         return "exito";
     }
+    
+    /////////////// esto de abajo los agregre yo VIKTOR para poder ver esas templates ///////////////
+                    
+    @GetMapping("/inicio")
+    public String mostrarInicio(ModelMap modelo) {
+        return "inicio";
+    }
+    @GetMapping("/blancos")
+    public String mostrarVinosBlancos(ModelMap modelo) {
+        return "blancos";
+    }
+    
+    @GetMapping("/tintos")
+    public String mostrarVinosTintos(ModelMap modelo) {
+        return "tintos";
+    }
+    
+    @GetMapping("/rosados")
+    public String mostrarVinosRosados(ModelMap modelo) {
+        return "rosados";
+    }
+    
+    @GetMapping("/espumantes")
+    public String mostrarVinosEspumantes(ModelMap modelo) {
+        return "espumantes";
+    }
+    
+    @GetMapping("/listaBodegas")
+    public String mostrarListaBodegas(ModelMap modelo) {
+        return "listaBodegas";
+    }
+    
+    @GetMapping("/bodega")
+    public String bodega(ModelMap modelo){
+        return "bodega";
+    }
+    
+    @GetMapping("/nostros")
+    public String mostrarNosotros(ModelMap modelo) {
+        return "nosotros";
+    }
+    
+    @GetMapping("/carrito")
+    public String mostrarCarrito(ModelMap modelo) {
+        return "carrito";
+    }
+    
+    @GetMapping("/falla")
+    public String informarFalla(ModelMap modelo) {
+        return "falla";
+    }
+    
+    @GetMapping("/cargaProducto")
+    public String cargarProducto(ModelMap modelo) {
+        return "cargaProducto";
+    }
 
+    //////////////////////////////////////////////////////////////////
     
-    
-    
-    
-    
-    
+      
 }
