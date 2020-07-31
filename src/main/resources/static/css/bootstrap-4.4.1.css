@@ -60,6 +60,9 @@ html {
     box-shadow: 0px 0px 20px #472820;
 
 }
+#tit{
+padding-left: 110px;
+}
 .form-register h4{
     font-size: 22px;
     margin-bottom: 20px;
@@ -79,6 +82,7 @@ html {
     height:40px;
     text-align: center;
     font-size: 18px; 
+
 }
 .form-register a{
     color: white;
@@ -89,6 +93,7 @@ html {
     text-decoration: underline;
 }
 button.btn.btn-primary {
+
     width: 350px;
     background: #ffffff;
     border: 1px solid #000;
