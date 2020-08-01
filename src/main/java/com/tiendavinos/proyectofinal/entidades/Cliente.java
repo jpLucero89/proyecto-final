@@ -129,4 +129,11 @@ public class Cliente extends AbstractEntity implements Serializable {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", email=" + email + ", telefono=" + telefono + ", password=" + password + ", alta=" + alta + ", baja=" + baja + ", pedidos=" + pedidos + '}';
+    }
+    
+    
+
 }
