@@ -7,20 +7,22 @@
         <title>tienda de vinos</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/png" href="images/favicon2.png"/>  
+        <link rel="shortcut icon" type="image/png" href="images/marca.png"/>  
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">tiendadevinos</a>
+                <a class="navbar-brand" href="inicio">TIENDA DE VINOS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
                         <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-inboxes-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393zM3.81.563A1.5 1.5 0 0 1 4.98 0h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1-.78.624l-3.7-4.624A.5.5 0 0 0 11.02 1H4.98a.5.5 0 0 0-.39.188L.89 5.812a.5.5 0 1 1-.78-.624L3.81.563z"/>
+                                <path fill-rule="evenodd" d="M.125 5.17A.5.5 0 0 1 .5 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+                                </svg> Productos</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="blancos">Blancos</a>
                                 <div class="dropdown-divider"></div>
@@ -31,20 +33,44 @@
                                 <a class="dropdown-item" href="espumantes">Espumantes</a>
                             </div>
                         <li class="nav-item active">
-                            <a class="nav-link" href="listaBodegas">Bodegas</a>
+                            <a class="nav-link" href="listaBodegas"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                                <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                                </svg> Bodegas</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="#">Nosotros</a>
+                            <a class="nav-link " href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-intersect" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm5 10v2a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2v5a2 2 0 0 1-2 2H5zm6-8H6a2 2 0 0 0-2 2v5H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2z"/>
+                                </svg> Nosotros</a>
                         </li>  
+                    </ul>
+                    <ul class="navbar-nav">
                         <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                </svg> Compras</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="registro">Registro</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="login">Login</a>
+                                <a class="dropdown-item" href="carrito">Ver carrito</a>
                             </div>
                         </li>
-                    </ul>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                                <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                                </svg> Usuario</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="registro"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-bounding-box" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    </svg> Mi cuenta</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="login"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                    </svg> Logout</a>
+                            </div>
+                        </li>
+                    </ul>    
                 </div>
             </div>
         </nav>
@@ -91,101 +117,180 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <hr>
-        <h2 class="text-center">LOS MÁS DESTACADOS</h2>
-        <hr>
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 pb-1 pb-md-0">
-                    <div class="card">
-                        <img class="card-img-top" src="images/vinotinto1.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">CabernEgg</h5>
-                            <p class="card-text">Delicado sabor, ideal para acompañar pastas y productos marinos de sartén. De perfume suave y penetrante.</p>
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 pb-1 pb-md-0">
-                    <div class="card">
-                        <img class="card-img-top" src="images/vinotinto2.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">BLEND</h5>
-                            <p class="card-text">Notas ideales para compañar picadas y platos fríos. Producto originario del sur de la provincia de Mendoza. </p>
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 pb-1 pb-md-0">
-                    <div class="card">
-                        <img class="card-img-top" src="images/holyNavy.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">HOLY-NAVY</h5>
-                            <p class="card-text">Producto regional del este de Mendoza, ideal para <strong>rugbiers</strong> que adoran derribar árboles con su fuerza.</p>
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container text-white bg-dark p-4">
-                <div class="row">
-                    <div class="col-6 col-md-8 col-lg-7">
-                        <div class="row text-center">
-                            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-                                <ul class="list-unstyled">
-                                    <li> <a class="btn-link" href="bodega">Bodega López</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Bianchi</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Escorihuela</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Trapiche</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Piattelli</a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-                                <ul class="list-unstyled">
-                                    <li> <a class="btn-link" href="bodega">Bodega Santa Julia</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Séptima</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Cicchitti</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Zuccardi</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Pulenta</a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-                                <ul class="list-unstyled">
-                                    <li> <a class="btn-link" href="bodega">Bodega Crotta</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Cafayate</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Trivento</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Tempus</a> </li>
-                                    <li> <a class="btn-link" href="bodega">Bodega Alta Vista</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-5">
-                        <address>
-                            <strong>TiendaDeVinos, Inc.</strong><strong> // Mesa 1</strong><br>
-                            Berutti 6000<br>
-                            Maipú, MENDOZA - Argentina, CP.5513<br>
-                            <abbr title="Phone">Tel:</abbr> (261) 580-9090
-                            <a href="mailto:tiendadevinos@tiendavinos.com">tiendadevinos@tiendavinos.com</a>
-                        </address>
-                    </div>
-                </div>
-            </div>
-            <footer class="text-center">
+            <hr>
+            <h2 class="text-center">LOS MÁS DESTACADOS</h2>
+            <hr>
+            <div class="container">
                 <div class="container">
+                    <div class="row text-center">
+                        <div class="col-md-4 pb-1 pb-md-0">
+                            <div class="card">
+                                <img class="card-img-top" src="images/vinotinto1.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div class="card-footer">    
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar</a>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><h5>Agregar producto al carro</h5></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
+                                                    <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z"/>
+                                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                                    </svg> 
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-md-4 pb-1 pb-md-0">
+                            <div class="card">
+                                <img class="card-img-top" src="images/vinotinto1.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div class="card-footer">    
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar</a>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><h5>Agregar producto al carro</h5></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
+                                                    <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z"/>
+                                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                                    </svg> 
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 pb-1 pb-md-0">
+                            <div class="card">
+                                <img class="card-img-top" src="images/vinotinto1.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div class="card-footer">    
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar&nbsp;</a>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><h5>Agregar producto al carro</h5></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
+                                                    <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z"/>
+                                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                                    </svg> 
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <br>
+                <div class="card container text-white bg-dark p-4">
                     <div class="row">
-                        <div class="col-12">
-                            <p>Copyright © tiendadevinos. Derechos reservados.</p>
+                        <div class="col-6 col-md-8 col-lg-7">
+                            <div class="row text-center">
+                                <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                    <ul class="list-unstyled">
+                                        <li> <a class="btn-link" href="bodega">Bodega López</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Bianchi</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Escorihuela</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Trapiche</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Piattelli</a> </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                    <ul class="list-unstyled">
+                                        <li> <a class="btn-link" href="bodega">Bodega Santa Julia</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Séptima</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Cicchitti</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Zuccardi</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Pulenta</a> </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                    <ul class="list-unstyled">
+                                        <li> <a class="btn-link" href="bodega">Bodega Crotta</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Cafayate</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Trivento</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Tempus</a> </li>
+                                        <li> <a class="btn-link" href="bodega">Bodega Alta Vista</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-5">
+                            <address>
+                                <strong>TiendaDeVinos, Inc.</strong><strong> // Mesa 1</strong><br>
+                                Berutti 6000<br>
+                                Maipú, MENDOZA - Argentina, CP.5513<br>
+                                <abbr title="Phone">Tel:</abbr> (261) 580-9090
+                                <a href="mailto:tiendadevinos@tiendavinos.com">tiendadevinos@tiendavinos.com</a>
+                            </address>
                         </div>
                     </div>
                 </div>
-            </footer>
-            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-            <script src="js/jquery-3.4.1.min.js"></script>
-            <!-- Include all compiled plugins (below), or include individual files as needed -->
-            <script src="js/popper.min.js"></script>
-            <script src="js/bootstrap-4.4.1.js"></script>
-    </body>
-</html>
+                <footer class="text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <p>Copyright © tiendadevinos. Derechos reservados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+                <script src="js/jquery-3.4.1.min.js"></script>
+                <!-- Include all compiled plugins (below), or include individual files as needed -->
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap-4.4.1.js"></script>
+                </body>
+                </html>
