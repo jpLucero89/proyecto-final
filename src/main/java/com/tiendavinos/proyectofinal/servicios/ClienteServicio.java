@@ -26,25 +26,33 @@ public class ClienteServicio implements UserDetailsService {
     @Autowired
     private ClienteRepositorio clienteRepositorio;
 
-    @Transactional
-    public Cliente registrarCliente(String nombre, String apellido,Integer edad, String email, String telefono, String password, String password2) throws ErrorServicio {
-
-        validar(nombre, apellido, email, password, password2);
-
-        Cliente cliente = new Cliente(nombre, apellido, edad, email, telefono, password);
-        cliente.setAlta(new Date());
-        cliente.setPedidos(new ArrayList<>());
-        clienteRepositorio.save(cliente);
-        
-        return cliente;
-        
-    }
+//    @Transactional
+//    public Cliente registrarCliente(String nombre, String apellido,Integer edad, String email, String telefono, String password, String password2) throws ErrorServicio {
+//
+//        validar(nombre, apellido, email, password, password2);
+//
+//        Cliente cliente = new Cliente(nombre, apellido, edad, email, telefono, password);
+//        cliente.setAlta(new Date());
+//        cliente.setPedidos(new ArrayList<>());
+//        clienteRepositorio.save(cliente);
+//        
+//         
+//        notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
+//        
+//        
+//        return cliente;
+//        
+//    }
     
     @Transactional
     public void registrarCliente(Cliente cliente){
         cliente.setAlta((new Date()));
+       
+             
+        notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
+        
         clienteRepositorio.save(cliente);
-      //  notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
+        
     }
 
     @Transactional
