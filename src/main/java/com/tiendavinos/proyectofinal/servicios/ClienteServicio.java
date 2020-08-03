@@ -34,11 +34,8 @@ public class ClienteServicio implements UserDetailsService {
 //        Cliente cliente = new Cliente(nombre, apellido, edad, email, telefono, password);
 //        cliente.setAlta(new Date());
 //        cliente.setPedidos(new ArrayList<>());
+//        
 //        clienteRepositorio.save(cliente);
-//        
-//         
-//        notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
-//        
 //        
 //        return cliente;
 //        
@@ -49,7 +46,7 @@ public class ClienteServicio implements UserDetailsService {
         cliente.setAlta((new Date()));
        
              
-        notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
+       // notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
         
         clienteRepositorio.save(cliente);
         

@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Pedido extends AbstractEntity implements Serializable {
+    
 
     @ManyToOne
     private Cliente cliente;
