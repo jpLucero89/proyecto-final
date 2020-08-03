@@ -9,7 +9,7 @@
         <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="images/marca.png"/>  
     </head>
-    <body>
+    <body style="background-image: url(../images/viñedoHD-sepia.jpg); background-attachment: fixed">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="inicio">TIENDA DE VINOS</a>
@@ -80,10 +80,11 @@
         </nav>
 
         <div class="container mt-4">
-            <h3>Carrito</h3>
+            <h3 style="color: #fff">Carrito</h3>
             <br>
             <div class="row">
                 <div class="col-sm-8">
+                    <div class="card">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -100,7 +101,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- AQUI VA EL BUCLE PARA RECORRER LLA LISTA DEL CARRITO GENERADA, FOREACH -->
+                            <!-- AQUI VA EL BUCLE PARA RECORRER LA LISTA DEL CARRITO GENERADA, FOREACH -->
                             <tr>
                                 <!-- SE VA AGREGANDO CADA ITEM DE ESA LISTA EN CADA <td> con el listaCarro.get(el atributo) por ejemplo -->
                                 <td> <!--item (para generar un orden numérico en la lista--> </td>
@@ -146,8 +147,8 @@
                         </tbody>
 
                     </table>
-
                 </div>
+                                    </div>
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-header">
@@ -166,13 +167,9 @@
                             <a href="#" class="btn btn-danger btn-block">Generar compra</a>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
         <br>
         <div class="card container text-white bg-dark p-4">
             <div class="row">
