@@ -115,10 +115,16 @@ public class PortalControlador {
     public String informarFalla(ModelMap modelo) {
         return "falla";
     }
+    
+    @GetMapping("/cargarProducto")
 
-    @GetMapping("/cargaProducto")
     public String cargarProducto(ModelMap modelo) {
-        return "cargaProducto";
+        return "cargarProducto";
+    }
+    
+    @GetMapping("/cargarProveedor")
+    public String cargarProveedor(ModelMap modelo) {
+        return "cargarProveedor";
     }
 
     //////////////////////////////////////////////////////////////////

@@ -25,7 +25,6 @@ public class VinoServicio {
         Vino vino = null;
         Proveedor proveedor = proveedorServicio.buscarProveedorPorId(idProveedor);
         if (proveedor != null) {
-
             vino = new Vino();
             vino.setMarca(marca);
             vino.setDescripcion(descripcion);

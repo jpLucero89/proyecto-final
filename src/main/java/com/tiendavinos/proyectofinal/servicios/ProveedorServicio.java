@@ -19,13 +19,12 @@ public class ProveedorServicio {
     private ProveedorRepositorio proveedorRepositorio;
 
     @Transactional
-    public Proveedor cargarProveedor(String nombre, String descripcion) throws ErrorServicio {
+    public Proveedor cargarProveedor(String nombre, Date alta, String descripcion) throws ErrorServicio {
 
         Proveedor proveedor = new Proveedor();
-        proveedor.setAlta(new Date());
+        proveedor.setAlta(alta);
         proveedor.setNombre(nombre);
         proveedor.setDescripcion(descripcion);
-        proveedor.setVinos(new ArrayList<>());
         proveedorRepositorio.save(proveedor);
 
         return proveedor;
