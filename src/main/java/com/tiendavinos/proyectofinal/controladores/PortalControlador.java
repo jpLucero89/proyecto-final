@@ -162,6 +162,7 @@ public class PortalControlador {
         proveedorServicio.cargarProveedor(proveedor);
         return "cargarProveedor";
     }
-
+    
+    
     //////////////////////////////////////////////////////////////////
 }
