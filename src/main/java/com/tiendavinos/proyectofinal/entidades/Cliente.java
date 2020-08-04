@@ -1,9 +1,7 @@
 package com.tiendavinos.proyectofinal.entidades;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -14,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Cliente extends AbstractEntity implements Serializable {
+public class Cliente extends AbstractEntity  {
 
     @NotNull
     @Size(min = 3, message = "Debe ingresar un nombre de al menos 3 caracteres")
@@ -31,6 +29,7 @@ public class Cliente extends AbstractEntity implements Serializable {
     private String telefono;
     @NotNull
     @Size(min = 6, message = "Debe ingresar mínimo 6 caracteres alfanuméricos")
+
     private String password;
 
     @Temporal(TemporalType.TIMESTAMP)
