@@ -30,7 +30,7 @@ public class Cliente extends AbstractEntity implements Serializable {
     private String email;
     private String telefono;
     @NotNull
-    @Size(min = 6, max = 50, message = "Debe ingresar entre 6 y 50 caracteres alfanuméricos")
+    @Size(min = 6, message = "Debe ingresar mínimo 6 caracteres alfanuméricos")
     private String password;
 
     @Temporal(TemporalType.TIMESTAMP)

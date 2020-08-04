@@ -125,9 +125,14 @@ public class PortalControlador {
         return "falla";
     }
     
-    @GetMapping("/cargaProducto")
+    @GetMapping("/cargarProducto")
     public String cargarProducto(ModelMap modelo) {
-        return "cargaProducto";
+        return "cargarProducto";
+    }
+    
+    @GetMapping("/cargarProveedor")
+    public String cargarProveedor(ModelMap modelo) {
+        return "cargarProveedor";
     }
 
     //////////////////////////////////////////////////////////////////

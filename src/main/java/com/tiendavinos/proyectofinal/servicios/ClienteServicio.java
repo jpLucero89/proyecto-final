@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,7 +45,10 @@ public class ClienteServicio implements UserDetailsService {
     @Transactional
     public void registrarCliente(Cliente cliente){
         cliente.setAlta((new Date()));
-       
+        String encriptada = new BCryptPasswordEncoder().encode(cliente.getPassword());
+        
+        cliente.setPassword(encriptada);
+
              
        // notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
         
