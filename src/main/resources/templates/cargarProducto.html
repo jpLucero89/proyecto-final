@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>tienda de vinos</title>
         <link rel="shortcut icon" type="image/png" href="images/marca.png"/>
-           
+
         <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
         <link href="css/formulario.css" rel="stylesheet">
     </head>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="container-formulario">
             <div class="text-center"><br>
                 <br>
@@ -39,111 +39,112 @@
                 <h2 class="card-header">Cargar Producto</h2>
                 <p class="lead">Formulario de carga de producto</p>
             </div>
-            <form class="needs-validation card-body" novalidate>
+            <form class="needs-validation card-body" method="POST" action="/cargarProducto">
                 <div class="row justify-content-md-center">
 
-                    <form class="form-control">
-                        <div class="row">
 
-                            <div class="col-12 md-6 mb-3">
-                                <h5><label for="marca">Bodega</label></h5>
-                                <input type="text" class="form-control" id="bodega" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Nombre de Bodega es rerquerido.
-                                </div>
-                            </div>     
+                    <div class="row">
 
-                            <div class="col-12 md-6 mb-3">
-                                <h5><label for="marca">Marca</label></h5>
-                                <input type="text" class="form-control" id="marca" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Marca del producto es rerquerida.
-                                </div>
-                            </div>
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label>Bodega</label></h5>
+                            <select th:field="${vino.proveedor.id}" >
+                                <option th:each="proveedor : ${proveedores}"
+                                        th:value="${proveedor.id}"                                
+                                        th:text="${proveedor.nombre}"
+                                        ></option>        
+                            </select>  
+                        </div>     
 
-                            <div class="mb-3 col-12 md-6 mb-3">
-                                <h5><label for="descripcion">Descripción</label></h5>
-                                <div class="form-group">
-                                    <textarea class="form-control" id="descripcion" rows="2" required></textarea>
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label for="marca">Marca</label></h5>                            
+                            <input type="text" class="form-control" th:field="${vino.marca}" required>
+                            <p class="error" th:errors="${vino.marca}" style="color: red;"></p>
+                        </div>
+
+                        <div class="mb-3 col-12 md-6 mb-3">
+                            <h5><label for="descripcion">Descripción</label></h5>
+                            <div class="form-group">
+                                <textarea class="form-control" id="descripcion" rows="2" required></textarea>
                                 <div class="invalid-feedback">
                                     Una descripción del producto es necesaria.
                                 </div>
-                                </div>
                             </div>
+                        </div>
 
-                            <div class="col-12 md-6 mb-3">
-                                <h5><label for="cosecha">Año cosecha</label></h5>
-                                <input type="number" class="form-control" id="cosecha" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Año de cosecha es requerido.
-                                </div>
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label for="cosecha">Año cosecha</label></h5>
+                            <input type="number" class="form-control" id="cosecha" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Año de cosecha es requerido.
                             </div>
+                        </div>
 
-                            <div class="col-12 md-6 mb-3">
-                                <div class="form-group">
-                                    <h5><label for="varietal">Varietal</label></h5>
-                                    <select class="form-control" id="varietal" required>
-                                        <option value="">seleccione...</option>
-                                        <option>MALBEC</option>
-                                        <option>CABERNET_SAUVIGNON</option>
-                                        <option>CABERNET_FRANC</option>
-                                        <option>CHARDONNAY</option>
-                                        <option>TORRONTES</option>
-                                        <option>ALBARINO</option>
-                                        <option>SAUVIGNON_BLANC</option>
-                                        <option>BRUT</option>
-                                        <option>EXTRA_BRUT</option>
-                                        <option>BRUT_NATURE</option>
-                                    </select>
-                                
+                        <div class="col-12 md-6 mb-3">
+                            <div class="form-group">
+                                <h5><label for="varietal">Varietal</label></h5>
+                                <select class="form-control" id="varietal" required>
+                                    <option value="">seleccione...</option>
+                                    <option>MALBEC</option>
+                                    <option>CABERNET_SAUVIGNON</option>
+                                    <option>CABERNET_FRANC</option>
+                                    <option>CHARDONNAY</option>
+                                    <option>TORRONTES</option>
+                                    <option>ALBARINO</option>
+                                    <option>SAUVIGNON_BLANC</option>
+                                    <option>BRUT</option>
+                                    <option>EXTRA_BRUT</option>
+                                    <option>BRUT_NATURE</option>
+                                </select>
+
                                 <div class="invalid-feedback">
                                     Se requiere seleccionar un varietal.
                                 </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 md-6 mb-3">
-                                <h5><label for="precio">Precio</label></h5>
-                                <input type="number" class="form-control" id="precio" placeholder="00,00" value="" required>
-                                <div class="invalid-feedback">
-                                    Se requiere un precio para el producto.
-                                </div>
-                            </div>
-
-                            <div class="col-12 md-6 mb-3">
-                                <h5><label for="cantidad">Cantidad</label></h5>
-                                <input type="number" class="form-control" id="cantidad" placeholder="0" value="" required>
-                                <div class="invalid-feedback">
-                                Es necesario fijar una cantidad de producto para stock.
-                                </div>
-                            </div>
-
-                            <div class="form-group col-12 md-6 mb-3">
-                                <h5><label for="foto">Cargar foto del producto</label></h5>
-                                <input type="file" class="form-control-file" id="foto" required>
                             </div>
                         </div>
+
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label for="precio">Precio</label></h5>
+                            <input type="number" class="form-control" id="precio" placeholder="00,00" value="" required>
+                            <div class="invalid-feedback">
+                                Se requiere un precio para el producto.
+                            </div>
+                        </div>
+
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label for="cantidad">Cantidad</label></h5>
+                            <input type="number" class="form-control" id="cantidad" placeholder="0" value="" required>
+                            <div class="invalid-feedback">
+                                Es necesario fijar una cantidad de producto para stock.
+                            </div>
+                        </div>
+
                         <div class="form-group col-12 md-6 mb-3">
-                            <hr class="mb-4">
-                            <button class="btn btn-lg btn-info" type="submit" ><svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M4.646 7.854a.5.5 0 0 0 .708 0L8 5.207l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z"/>
-                                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-1 0v9a.5.5 0 0 0 .5.5z"/>
-                                <path fill-rule="evenodd" d="M1.5 2.5A1.5 1.5 0 0 1 3 1h10a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 13 12h-1.5a.5.5 0 0 1 0-1H13a.5.5 0 0 0 .5-.5v-8A.5.5 0 0 0 13 2H3a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h1.5a.5.5 0 0 1 0 1H3a1.5 1.5 0 0 1-1.5-1.5v-8z"/>
-                                </svg>Cargar Producto
-                            </button>
-                        </div>    
-                    </form>
-
+                            <h5><label for="foto">Cargar foto del producto</label></h5>
+                            <input type="file" class="form-control-file" id="foto" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 md-6 mb-3">
+                        <hr class="mb-4">
+                        <button class="btn btn-lg btn-info" type="submit" ><svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.646 7.854a.5.5 0 0 0 .708 0L8 5.207l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z"/>
+                            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-1 0v9a.5.5 0 0 0 .5.5z"/>
+                            <path fill-rule="evenodd" d="M1.5 2.5A1.5 1.5 0 0 1 3 1h10a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 13 12h-1.5a.5.5 0 0 1 0-1H13a.5.5 0 0 0 .5-.5v-8A.5.5 0 0 0 13 2H3a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h1.5a.5.5 0 0 1 0 1H3a1.5 1.5 0 0 1-1.5-1.5v-8z"/>
+                            </svg>Cargar Producto
+                        </button>
+                    </div>    
                 </div>
+            </form>
 
-                <footer class="my-5 pt-5 text-muted text-center text-small">
-                    <p class="mb-1">2020 - Tienda de Vinos</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#">Privacy</a></li>
-                        <li class="list-inline-item"><a href="#">Terms</a></li>
-                        <li class="list-inline-item"><a href="#">Support</a></li>
-                    </ul>
-                </footer>
+
+
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">2020 - Tienda de Vinos</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li>
+                </ul>
+            </footer>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script>
