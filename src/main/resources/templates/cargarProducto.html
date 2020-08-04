@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>tienda de vinos</title>
         <link rel="shortcut icon" type="image/png" href="images/marca.png"/>
-           
+
         <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
         <link href="css/formulario.css" rel="stylesheet">
     </head>
@@ -30,19 +30,21 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="container-formulario">
             <div class="text-center"><br>
                 <br>
                 <br>
                 <img class="mb-3" src="images/marcas tienda vinos.svg" alt="" width="72" height="72">
-                <h2 class="card-header">Cargar Producto</h2>
+                <h2 class="card-header"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-seam" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                    </svg> Cargar Producto</h2>
                 <p class="lead">Formulario de carga de producto</p>
             </div>
             <form class="needs-validation card-body" novalidate>
                 <div class="row justify-content-md-center">
 
-                    <form class="form-control">
+                    
                         <div class="row">
 
                             <div class="col-12 md-6 mb-3">
@@ -65,9 +67,9 @@
                                 <h5><label for="descripcion">Descripción</label></h5>
                                 <div class="form-group">
                                     <textarea class="form-control" id="descripcion" rows="2" required></textarea>
-                                <div class="invalid-feedback">
-                                    Una descripción del producto es necesaria.
-                                </div>
+                                    <div class="invalid-feedback">
+                                        Una descripción del producto es necesaria.
+                                    </div>
                                 </div>
                             </div>
 
@@ -95,10 +97,10 @@
                                         <option>EXTRA_BRUT</option>
                                         <option>BRUT_NATURE</option>
                                     </select>
-                                
-                                <div class="invalid-feedback">
-                                    Se requiere seleccionar un varietal.
-                                </div>
+
+                                    <div class="invalid-feedback">
+                                        Se requiere seleccionar un varietal.
+                                    </div>
                                 </div>
                             </div>
 
@@ -114,7 +116,7 @@
                                 <h5><label for="cantidad">Cantidad</label></h5>
                                 <input type="number" class="form-control" id="cantidad" placeholder="0" value="" required>
                                 <div class="invalid-feedback">
-                                Es necesario fijar una cantidad de producto para stock.
+                                    Es necesario fijar una cantidad de producto para stock.
                                 </div>
                             </div>
 
@@ -138,11 +140,6 @@
 
                 <footer class="my-5 pt-5 text-muted text-center text-small">
                     <p class="mb-1">2020 - Tienda de Vinos</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#">Privacy</a></li>
-                        <li class="list-inline-item"><a href="#">Terms</a></li>
-                        <li class="list-inline-item"><a href="#">Support</a></li>
-                    </ul>
                 </footer>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

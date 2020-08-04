@@ -134,7 +134,8 @@ public class PortalControlador {
     public String cargarProveedor(ModelMap modelo) {
         return "cargarProveedor";
     }
-
+    
+    
     //////////////////////////////////////////////////////////////////
     
       
