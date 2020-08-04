@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="e" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,49 +42,38 @@
                     </svg> Cargar Proveedor</h2>
                 <p class="lead">Formulario de carga de proveedor</p>
             </div>
-            <form class="needs-validation card-body" novalidate>
+            <form class="needs-validation card-body" method="POST" action="/cargarProveedor">
                 <div class="row justify-content-md-center">
-
-
                     <div class="row">
-
                         <div class="col-12 md-6 mb-3">
-                            <h5><label for="marca">Proveedor</label></h5>
-                            <input type="text" class="form-control" id="bodega" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Nombre de proveedor es rerquerido.
-                            </div>
+                            <h5><label>Proveedor</label></h5>
+                            <input type="text" class="form-control" th:field="${proveedor.nombre}" required>
+                            <p class="error" th:errors="${proveedor.nombre}" style="color: red;"></p>
                         </div>     
 
                         <div class="mb-3 col-12 md-6 mb-3">
                             <h5><label for="descripcion">Descripción</label></h5>
                             <div class="form-group">
-                                <textarea class="form-control" id="descripcion" rows="2" required></textarea>
-                                <div class="invalid-feedback">
-                                    Una descripción del proveedor es requerida.
-                                </div>
+                                <textarea class="form-control" th:field="${proveedor.descripcion}" id="descripcion" rows="2" required></textarea>
+                                <p class="error" th:errors="${proveedor.descripcion}" style="color: red;"></p>
+
                             </div>
                         </div>
 
-                        <div class="col-12 md-6 mb-3">
-                            <h5><label for="cosecha">Fecha de alta</label></h5>
-                            <input type="date" class="form-control" id="cosecha" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Una fewcha de alta se requiere.
-                            </div>
-                        </div>
 
-                        <div class="form-group col-12 md-6 mb-3">
-                            <hr class="mb-4">
-                            <button class="btn btn-lg btn-warning" type="submit" ><svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M4.646 7.854a.5.5 0 0 0 .708 0L8 5.207l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z"/>
-                                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-1 0v9a.5.5 0 0 0 .5.5z"/>
-                                <path fill-rule="evenodd" d="M1.5 2.5A1.5 1.5 0 0 1 3 1h10a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 13 12h-1.5a.5.5 0 0 1 0-1H13a.5.5 0 0 0 .5-.5v-8A.5.5 0 0 0 13 2H3a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h1.5a.5.5 0 0 1 0 1H3a1.5 1.5 0 0 1-1.5-1.5v-8z"/>
-                                </svg>Cargar Proveedor
-                            </button>
-                        </div>    
                     </div>
-            </form>
+
+                    <div class="form-group col-12 md-6 mb-3">
+                        <hr class="mb-4">
+                        <button class="btn btn-lg btn-warning" type="submit" ><svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.646 7.854a.5.5 0 0 0 .708 0L8 5.207l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z"/>
+                            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-1 0v9a.5.5 0 0 0 .5.5z"/>
+                            <path fill-rule="evenodd" d="M1.5 2.5A1.5 1.5 0 0 1 3 1h10a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 13 12h-1.5a.5.5 0 0 1 0-1H13a.5.5 0 0 0 .5-.5v-8A.5.5 0 0 0 13 2H3a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h1.5a.5.5 0 0 1 0 1H3a1.5 1.5 0 0 1-1.5-1.5v-8z"/>
+                            </svg>Cargar Proveedor
+                        </button>
+                    </div>    
+                </div>
+            </form>          
             <footer class="my-5 pt-5 text-muted text-center text-small">
                 <p class="mb-1">2020 - Tienda de Vinos</p>
             </footer>
