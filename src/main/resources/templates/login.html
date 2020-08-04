@@ -1,64 +1,70 @@
 <!doctype html>
-<html lang="es">
+<html lang="es"  xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>tienda de vinos</title>
         <link rel="shortcut icon" type="image/png" href="images/marca.png"/>
-       
+
         <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/estiloLogin.css" rel="stylesheet">
     </head>
-    <body class="text-center">
+    <body style="background-image: url(../images/viñedoHD-sepia.jpg); background-attachment: fixed">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="inicio">TIENDA DE VINOS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+            <div class="container">
+                <a class="navbar-brand" href="inicio">TIENDA DE VINOS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
                             <a class="nav-link" href="inicio"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                                 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
                                 </svg> Inicio</a>
                         </li>
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
         <!--<div th:if="${param.error}">
             Correo inválido.
         </div>
         <div th:if="${param.logout}">
             You have been logged out.<div class="invalid-feedback">
         </div>-->
-      
-        <form class="form-signin" action="/logincheck" method="POST"><br>
+
+      <form class="form-signin" th:action="@{/logincheck}" method="post"><br>
             <div><br>
-            <br>
-            <br>
-            <img class="mb-3" src="images/marcas tienda vinos.svg" alt="" width="120" height="120">
-            <h1 class="h3 mb-3 font-weight-normal">TIENDA DE VINOS</h1>
-            <div class="card-footer">
-                <h4>Login</h4>
-            </div>    
-            <label for="inputEmail" class="sr-only">Dirección de correo</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de correo" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Recordarme
-                </label>
+                <br>
+                <br>
+                <img class="mb-3" src="images/marcas tienda vinos.svg" alt="" width="120" height="120">
+                <h1 class="h3 mb-3 font-weight-normal">TIENDA DE VINOS</h1>
+                <div class="card-footer">
+                    <h4>Login</h4>
+                    <div align="center" th:if="${param.error}">
+                        <p style="font-size: 20; color: #FF1C19;">Usuario o contraseña incorrectos</p>
+                    </div>
+                </div>
+
+                <label for="email" class="sr-only">Dirección de correo</label>
+                <input type="email" class="form-control" placeholder="Dirección de correo" required autofocus>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" class="form-control" placeholder="Contraseña" required>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Recordarme
+                    </label>
+                </div>
             </div>
-            </div>
+
             <button class="btn btn-success" type="submit">Ingresar</button>
             <p class="mt-5 mb-3 text-muted">Tienda de vinos - 2020</p>
         </form>
+        </div>
     </body>
 </html>
 

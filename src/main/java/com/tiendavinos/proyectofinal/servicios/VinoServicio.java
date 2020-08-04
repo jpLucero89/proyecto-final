@@ -25,7 +25,6 @@ public class VinoServicio {
         Vino vino = null;
         Proveedor proveedor = proveedorServicio.buscarProveedorPorId(idProveedor);
         if (proveedor != null) {
-
             vino = new Vino();
             vino.setMarca(marca);
             vino.setDescripcion(descripcion);
@@ -41,6 +40,13 @@ public class VinoServicio {
             throw new ErrorServicio("Para crear un vino primero debe cargar el proveedor.");
         }
         return vino;
+    }
+    
+    @Transactional
+    public void cargarVino(Vino vino){
+               
+        proveedorServicio.agregarVinoAProveedor(vino.getProveedor(), vino);
+        vinoRepositorio.save(vino);
     }
 
     @Transactional

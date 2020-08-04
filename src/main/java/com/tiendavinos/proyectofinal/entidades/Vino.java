@@ -8,16 +8,19 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Vino extends AbstractEntity implements Serializable {
-
-    private String marca;
+    
+    @NotEmpty(message = "La marca no debe quedar vacia")
+    private String marca; 
     private String descripcion;
+    @NotEmpty(message = "La cosecha no debe quedar vacia")
     private String cosecha;
-    private Producto producto;
     private Tipo tipo;
     private Varietal varietal;
+    @NotEmpty(message = "La marca no debe quedar vacia")
     private Double precio;
 
     @ManyToOne
@@ -29,11 +32,10 @@ public class Vino extends AbstractEntity implements Serializable {
 
     }
 
-    public Vino(String marca, String descripcion, String cosecha, Producto producto, Tipo tipo, Varietal varietal, Double precio, Proveedor proveedor) {
+    public Vino(String marca, String descripcion, String cosecha, Tipo tipo, Varietal varietal, Double precio, Proveedor proveedor) {
         this.marca = marca;
         this.descripcion = descripcion;
-        this.cosecha = cosecha;
-        this.producto = producto;
+        this.cosecha = cosecha;        
         this.tipo = tipo;
         this.varietal = varietal;
         this.precio = precio;
@@ -94,14 +96,6 @@ public class Vino extends AbstractEntity implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
     }
 
     public List<Pedido> getVendidos() {
