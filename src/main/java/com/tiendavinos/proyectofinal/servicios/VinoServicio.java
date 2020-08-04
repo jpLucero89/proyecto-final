@@ -41,6 +41,13 @@ public class VinoServicio {
         }
         return vino;
     }
+    
+    @Transactional
+    public void cargarVino(Vino vino){
+               
+        proveedorServicio.agregarVinoAProveedor(vino.getProveedor(), vino);
+        vinoRepositorio.save(vino);
+    }
 
     @Transactional
     public Vino modificarVino(String idVino, String idProveedor, String marca, String descripcion, String cosecha, Tipo tipo, Varietal varietal, Double precio) throws ErrorServicio {

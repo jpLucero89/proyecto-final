@@ -1,10 +1,16 @@
 package com.tiendavinos.proyectofinal.controladores;
 
 import com.tiendavinos.proyectofinal.entidades.Cliente;
+import com.tiendavinos.proyectofinal.entidades.Proveedor;
+import com.tiendavinos.proyectofinal.entidades.Vino;
+import com.tiendavinos.proyectofinal.enums.Producto;
 import com.tiendavinos.proyectofinal.enums.Roles;
 import com.tiendavinos.proyectofinal.errores.ErrorServicio;
 import com.tiendavinos.proyectofinal.repositorios.ClienteRepositorio;
+import com.tiendavinos.proyectofinal.repositorios.VinoRepositorio;
 import com.tiendavinos.proyectofinal.servicios.ClienteServicio;
+import com.tiendavinos.proyectofinal.servicios.ProveedorServicio;
+import com.tiendavinos.proyectofinal.servicios.VinoServicio;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +35,23 @@ public class PortalControlador {
     @Autowired
     private ClienteRepositorio clienteRepositorio;
 
+    @Autowired
+    private VinoServicio vinoServicio;
+
+    @Autowired
+    private ProveedorServicio proveedorServicio;
+
     @GetMapping
     public String index() {
         return "index";
     }
 
-  @GetMapping("/inicio")//pagina hecha para comprobar login correcto
-    public String loginSuccess(){
-        return "inicio";       
+    @GetMapping("/inicio")//pagina hecha para comprobar login correcto
+    public String loginSuccess() {
+        return "inicio";
     }
 //    @PreAuthorize("hasAnyRole( 'ROLE_USUARIO' )")
+
     @GetMapping("/login")
     public String login() {
         return "login";
@@ -70,7 +83,6 @@ public class PortalControlador {
 //    public String mostrarInicio(ModelMap modelo) {
 //        return "inicio";
 //    }
-
     @GetMapping("/blancos")
     public String mostrarVinosBlancos(ModelMap modelo) {
         return "blancos";
@@ -115,15 +127,39 @@ public class PortalControlador {
     public String informarFalla(ModelMap modelo) {
         return "falla";
     }
-    
-    @GetMapping("/cargarProducto")
 
-    public String cargarProducto(ModelMap modelo) {
+    @GetMapping("/cargarProducto")
+    public String cargarProducto(Model model) {
+        model.addAttribute("proveedores", proveedorServicio.listarProveedores());
+        model.addAttribute(new Vino());
         return "cargarProducto";
     }
-    
+
+    @PostMapping("/cargarProducto")
+    public String cargarProducto(@ModelAttribute @Valid Vino vino, Errors error, Model model) {
+        if (error.hasErrors()) {
+            model.addAttribute("errores", error);
+            return "cargarProducto";
+        }
+        vinoServicio.cargarVino(vino);
+        return "cargaProducto";
+    }
+
     @GetMapping("/cargarProveedor")
-    public String cargarProveedor(ModelMap modelo) {
+    public String cargarProveedor(Model model) {
+        
+        model.addAttribute(new Proveedor());
+        return "cargarProveedor";
+    }
+
+    @PostMapping("/cargarProveedor")
+    public String cargarProveedor(@ModelAttribute @Valid Proveedor proveedor, Errors error, Model model) {
+        if (error.hasErrors()) {
+            model.addAttribute("errores", error);
+            return "cargarProveedor";
+        }
+
+        proveedorServicio.cargarProveedor(proveedor);
         return "cargarProveedor";
     }
     

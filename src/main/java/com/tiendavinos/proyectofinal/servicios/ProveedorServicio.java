@@ -29,6 +29,13 @@ public class ProveedorServicio {
 
         return proveedor;
     }
+    
+    
+     @Transactional
+     public void cargarProveedor(Proveedor proveedor){
+         proveedor.setAlta(new Date());
+         proveedorRepositorio.save(proveedor);
+     }
 
     @Transactional
     public Proveedor modificarProveedor(String idProveedor, String nombre, String descripcion) throws ErrorServicio {
@@ -114,6 +121,10 @@ public class ProveedorServicio {
     @Transactional
     public void guardarCambios(Proveedor proveedor) {
         proveedorRepositorio.save(proveedor);
+    }
+    
+    public Iterable<Proveedor> listarProveedores(){
+        return proveedorRepositorio.findAll();
     }
 
 }

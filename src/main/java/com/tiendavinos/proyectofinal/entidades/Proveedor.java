@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Proveedor extends AbstractEntity implements Serializable {
-
+    
+    @NotEmpty(message="No se puede guardar un proveedor sin nombre")
     private String nombre;
     private String descripcion;
 
