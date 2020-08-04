@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,64 +16,45 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Service
 public class ClienteServicio implements UserDetailsService {
 
     @Autowired
     private NotificacionServicio notificacionServicio;
-    
+
     @Autowired
     private ClienteRepositorio clienteRepositorio;
 
-//    @Transactional
-//    public Cliente registrarCliente(String nombre, String apellido,Integer edad, String email, String telefono, String password, String password2) throws ErrorServicio {
-//
-//        validar(nombre, apellido, email, password, password2);
-//
-//        Cliente cliente = new Cliente(nombre, apellido, edad, email, telefono, password);
-//        cliente.setAlta(new Date());
-//        cliente.setPedidos(new ArrayList<>());
-//        
-//        clienteRepositorio.save(cliente);
-//        
-//        return cliente;
-//        
-//    }
-    
     @Transactional
-    public void registrarCliente(Cliente cliente){
+    public void registrarCliente(Cliente cliente) {
         cliente.setAlta((new Date()));
-       
-             
-       // notificacionServicio.enviar("Bienvenido a la vinoteca!", "Vinoteca", cliente.getEmail());
-        
+        String encriptada = new BCryptPasswordEncoder().encode(cliente.getPassword());
+        cliente.setPassword(encriptada);
         clienteRepositorio.save(cliente);
-        
     }
 
     @Transactional
-    public Cliente modificarCliente(String idCliente, String nombre, String apellido, String email, String telefono, String password, String password2) throws ErrorServicio {
-        Cliente cliente = null;
-
-        validar(nombre, apellido, email, password, password2);
+    public Cliente modificarCliente(String idCliente, String nombre, String apellido, String email, String telefono, String password) throws ErrorServicio {
 
         Optional<Cliente> resultado = clienteRepositorio.findById(idCliente);
 
         if (resultado.isPresent()) {
-            cliente = resultado.get();
-
+            Cliente cliente = resultado.get();
             cliente.setNombre(nombre);
             cliente.setApellido(apellido);
             cliente.setEmail(email);
             cliente.setTelefono(telefono);
             clienteRepositorio.save(cliente);
-
+            return cliente;
         } else {
             throw new ErrorServicio("No hemos podido encontrar el cliente solicitado");
         }
-        return cliente;
+
     }
 
     @Transactional
@@ -142,24 +124,27 @@ public class ClienteServicio implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
-        Cliente cliente = clienteRepositorio.buscarPorMail(mail);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Cliente cliente = clienteRepositorio.findByEmail(email);
         if (cliente != null) {
 
             List<GrantedAuthority> permisos = new ArrayList<>();
 
-            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO");
+            GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_USUARIO");
             permisos.add(p1);
 
-            GrantedAuthority p2 = new SimpleGrantedAuthority("ADMIN");
-            permisos.add(p2);
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            session.setAttribute("clientesession", cliente);
 
             User user = new User(cliente.getEmail(), cliente.getPassword(), permisos);
             return user;
 
         } else {
-            return null;
+            System.err.println("ACA ESTA EL ERROR");
+            throw new UsernameNotFoundException("No se encontró un usuario con ese email");
+
         }
     }
-
 }
+

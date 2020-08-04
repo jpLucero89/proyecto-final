@@ -28,7 +28,7 @@ public class Cliente extends AbstractEntity  {
     private String email;
     private String telefono;
     @NotNull
-    @Size(min = 6, max = 50, message = "Debe ingresar entre 6 y 50 caracteres alfanuméricos")
+    @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
     private String password;
 
     @Temporal(TemporalType.TIMESTAMP)
