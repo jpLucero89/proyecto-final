@@ -93,11 +93,11 @@ public class ProveedorServicio {
         }
     }
 
-    @Transactional
-    public void agregarVinoAProveedor(Proveedor proveedor, Vino vino) {
-        proveedor.getVinos().add(vino);
-        proveedorRepositorio.save(proveedor);
-    }
+//    @Transactional
+//    public void agregarVinoAProveedor(Proveedor proveedor, Vino vino) {
+//        proveedor.getVinos().add(vino);
+//        proveedorRepositorio.save(proveedor);
+//    }
 
     @Transactional
     public void sacarVinoAProveedor(Proveedor proveedor, Vino vino) {

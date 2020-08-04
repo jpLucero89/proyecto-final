@@ -41,11 +41,22 @@
                     </svg> Cargar Producto</h2>
                 <p class="lead">Formulario de carga de producto</p>
             </div>
-            <form class="needs-validation card-body" novalidate>
+
+            <form class="needs-validation card-body" method="POST" action="/cargarProducto"  enctype="multipart/form-data">
+
                 <div class="row justify-content-md-center">
 
-                    
-                        <div class="row">
+
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label>Bodega</label></h5>
+                            <select th:field="${vino.proveedor}" >
+                                <option th:each="proveedor : ${proveedores}"
+                                        th:value="${proveedor.id}"                                
+                                        th:text="${proveedor.nombre}"
+                                        ></option>        
+                            </select>  
+                        </div>     
+
 
                             <div class="col-12 md-6 mb-3">
                                 <h5><label for="marca">Bodega</label></h5>
@@ -55,76 +66,60 @@
                                 </div>
                             </div>     
 
-                            <div class="col-12 md-6 mb-3">
-                                <h5><label for="marca">Marca</label></h5>
-                                <input type="text" class="form-control" id="marca" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Marca del producto es rerquerida.
-                                </div>
+
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label for="marca">Marca</label></h5>                            
+                            <input type="text" class="form-control" th:field="${vino.marca}" required>
+                            <p class="error" th:errors="${vino.marca}" style="color: red;"></p>
+                        </div>
+
+                        <div class="mb-3 col-12 md-6 mb-3">
+                            <h5><label for="descripcion">Descripción</label></h5>
+                            <div class="form-group">
+                                <textarea class="form-control" th:field="${vino.descripcion}" id="descripcion" rows="2" required></textarea>
+                                <p class="error" th:errors="${vino.descripcion}" style="color: red;"></p>
+
                             </div>
 
-                            <div class="mb-3 col-12 md-6 mb-3">
-                                <h5><label for="descripcion">Descripción</label></h5>
-                                <div class="form-group">
-                                    <textarea class="form-control" id="descripcion" rows="2" required></textarea>
-                                    <div class="invalid-feedback">
-                                        Una descripción del producto es necesaria.
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-12 md-6 mb-3">
-                                <h5><label for="cosecha">Año cosecha</label></h5>
-                                <input type="number" class="form-control" id="cosecha" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Año de cosecha es requerido.
-                                </div>
-                            </div>
+                        <div class="col-12 md-6 mb-3">
+                            <h5><label for="cosecha">Año cosecha</label></h5>
+                            <input type="number" class="form-control" id="cosecha" th:field="${vino.cosecha}" required>
+                            <p class="error" th:errors="${vino.cosecha}" style="color: red;"></p>
+                        </div>
 
-                            <div class="col-12 md-6 mb-3">
-                                <div class="form-group">
-                                    <h5><label for="varietal">Varietal</label></h5>
-                                    <select class="form-control" id="varietal" required>
-                                        <option value="">seleccione...</option>
-                                        <option>MALBEC</option>
-                                        <option>CABERNET_SAUVIGNON</option>
-                                        <option>CABERNET_FRANC</option>
-                                        <option>CHARDONNAY</option>
-                                        <option>TORRONTES</option>
-                                        <option>ALBARINO</option>
-                                        <option>SAUVIGNON_BLANC</option>
-                                        <option>BRUT</option>
-                                        <option>EXTRA_BRUT</option>
-                                        <option>BRUT_NATURE</option>
-                                    </select>
+                        <div class="col-12 md-6 mb-3">
+                            <div class="form-group">
+                                <h5><label for="varietal">Varietal</label></h5>
+                                <select class="form-control" th:field="${vino.varietal}" required>
+                                    <option th:each="varietal : ${varietales}" 
+                                            th:value="${varietal}"
+                                            th:text="${varietal.nombre}">   
+                                    </option>
+                                </select>
+                                <p class="error" th:errors="${vino.varietal}" style="color: red;"></p>
 
-                                    <div class="invalid-feedback">
-                                        Se requiere seleccionar un varietal.
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="col-12 md-6 mb-3">
                                 <h5><label for="precio">Precio</label></h5>
-                                <input type="number" class="form-control" id="precio" placeholder="00,00" value="" required>
-                                <div class="invalid-feedback">
-                                    Se requiere un precio para el producto.
-                                </div>
+
+                                <input type="number" class="form-control" id="cosecha" th:field="${vino.precio}" required>
+                                <p class="error" th:errors="${vino.precio}" style="color: red;"></p>
                             </div>
 
                             <div class="col-12 md-6 mb-3">
                                 <h5><label for="cantidad">Cantidad</label></h5>
-                                <input type="number" class="form-control" id="cantidad" placeholder="0" value="" required>
-                                <div class="invalid-feedback">
-                                    Es necesario fijar una cantidad de producto para stock.
-                                </div>
+                                <input type="number" class="form-control" id="cosecha" th:field="${vino.cantidad}" required>
+                                <p class="error" th:errors="${vino.cantidad}" style="color: red;"></p>
                             </div>
 
                             <div class="form-group col-12 md-6 mb-3">
                                 <h5><label for="foto">Cargar foto del producto</label></h5>
-                                <input type="file" class="form-control-file" id="foto" required>
+                                <input type="file" class="form-control-file" name="archivo" required>
                             </div>
                         </div>
+
                         <div class="form-group col-12 md-6 mb-3">
                             <hr class="mb-4">
                             <button class="btn btn-lg btn-info" type="submit" ><svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -136,11 +131,13 @@
                         </div>    
                     </form>
 
+
                 </div>
 
                 <footer class="my-5 pt-5 text-muted text-center text-small">
                     <p class="mb-1">2020 - Tienda de Vinos</p>
                 </footer>
+
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script>
