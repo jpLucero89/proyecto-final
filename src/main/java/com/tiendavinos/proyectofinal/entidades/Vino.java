@@ -1,42 +1,50 @@
 package com.tiendavinos.proyectofinal.entidades;
 
-import com.tiendavinos.proyectofinal.enums.Producto;
-import com.tiendavinos.proyectofinal.enums.Tipo;
 import com.tiendavinos.proyectofinal.enums.Varietal;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Vino extends AbstractEntity implements Serializable {
-    
+
     @NotEmpty(message = "La marca no debe quedar vacia")
-    private String marca; 
+    private String marca;
     private String descripcion;
     @NotEmpty(message = "La cosecha no debe quedar vacia")
     private String cosecha;
-    private Tipo tipo;
+
+    private Integer cantidad;
+    @NotNull(message = "Debe seleccionar algun varietal")
     private Varietal varietal;
-    @NotEmpty(message = "La marca no debe quedar vacia")
+    @NotNull(message = "El precio no debe quedar vacio")
     private Double precio;
 
     @ManyToOne
     private Proveedor proveedor;
-    @ManyToMany(mappedBy = "vinos")
+    @ManyToMany(mappedBy = "vinos", fetch = FetchType.EAGER)
     private List<Pedido> vendidos;
+
+    @OneToOne
+    private Foto foto;
 
     public Vino() {
 
     }
 
-    public Vino(String marca, String descripcion, String cosecha, Tipo tipo, Varietal varietal, Double precio, Proveedor proveedor) {
+    public Vino(String marca, String descripcion, Integer cantidad, String cosecha, Varietal varietal, Double precio, Proveedor proveedor) {
         this.marca = marca;
         this.descripcion = descripcion;
-        this.cosecha = cosecha;        
-        this.tipo = tipo;
+        this.cosecha = cosecha;
+        this.cantidad = cantidad;
         this.varietal = varietal;
         this.precio = precio;
         this.proveedor = proveedor;
@@ -58,12 +66,12 @@ public class Vino extends AbstractEntity implements Serializable {
         this.cosecha = cosecha;
     }
 
-    public Tipo getTipo() {
-        return tipo;
+    public Integer getCantidad() {
+        return cantidad;
     }
 
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
     }
 
     public Varietal getVarietal() {
@@ -104,6 +112,14 @@ public class Vino extends AbstractEntity implements Serializable {
 
     public void setVendidos(List<Pedido> vendidos) {
         this.vendidos = vendidos;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
 
     @Override

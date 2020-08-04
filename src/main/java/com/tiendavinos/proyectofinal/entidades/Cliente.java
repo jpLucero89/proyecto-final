@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
@@ -29,9 +30,8 @@ public class Cliente extends AbstractEntity  {
     private String telefono;
     @NotNull
     @Size(min = 6, message = "Debe ingresar mínimo 6 caracteres alfanuméricos")
-
     private String password;
-
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
     @Temporal(TemporalType.TIMESTAMP)
@@ -127,6 +127,8 @@ public class Cliente extends AbstractEntity  {
     public String getId() {
         return id;
     }
+
+
 
     @Override
     public String toString() {
