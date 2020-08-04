@@ -1,5 +1,6 @@
 package com.tiendavinos.proyectofinal.servicios;
 
+import com.tiendavinos.proyectofinal.entidades.Foto;
 import com.tiendavinos.proyectofinal.entidades.Proveedor;
 import com.tiendavinos.proyectofinal.entidades.Vino;
 import com.tiendavinos.proyectofinal.enums.Tipo;
@@ -10,6 +11,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class VinoServicio {
@@ -18,10 +20,13 @@ public class VinoServicio {
     private VinoRepositorio vinoRepositorio;
 
     @Autowired
+    private FotoServicio fotoServicio;
+
+    @Autowired
     private ProveedorServicio proveedorServicio;
 
     @Transactional
-    public Vino crearVino(String idProveedor, String marca, String descripcion, String cosecha, Tipo tipo, Varietal varietal, Double precio) throws ErrorServicio {
+    public Vino crearVino(String idProveedor, String marca, String descripcion, String cosecha, Integer cantidad, Varietal varietal, Double precio, MultipartFile archivo) throws ErrorServicio {
         Vino vino = null;
         Proveedor proveedor = proveedorServicio.buscarProveedorPorId(idProveedor);
         if (proveedor != null) {
@@ -30,27 +35,31 @@ public class VinoServicio {
             vino.setDescripcion(descripcion);
             vino.setCosecha(cosecha);
             vino.setProveedor(proveedor);
-            vino.setTipo(tipo);
+            vino.setCantidad(cantidad);
             vino.setVarietal(varietal);
             vino.setPrecio(precio);
+            Foto foto = fotoServicio.guardar(archivo);
 
-            proveedorServicio.agregarVinoAProveedor(proveedor, vino);
+            vino.setFoto(foto);
+
+//            proveedorServicio.agregarVinoAProveedor(proveedor, vino);
             vinoRepositorio.save(vino);
         } else {
             throw new ErrorServicio("Para crear un vino primero debe cargar el proveedor.");
         }
         return vino;
     }
-    
+
     @Transactional
-    public void cargarVino(Vino vino){
-               
-        proveedorServicio.agregarVinoAProveedor(vino.getProveedor(), vino);
+    public void cargarVino(Vino vino, MultipartFile archivo) throws ErrorServicio {
+        Foto foto = fotoServicio.guardar(archivo);
+        vino.setFoto(foto);
+//        proveedorServicio.agregarVinoAProveedor(vino.getProveedor(), vino);
         vinoRepositorio.save(vino);
     }
 
     @Transactional
-    public Vino modificarVino(String idVino, String idProveedor, String marca, String descripcion, String cosecha, Tipo tipo, Varietal varietal, Double precio) throws ErrorServicio {
+    public Vino modificarVino(String idVino, String idProveedor, String marca, String descripcion, String cosecha, Integer cantidad, Varietal varietal, Double precio) throws ErrorServicio {
         Proveedor proveedor = proveedorServicio.buscarProveedorPorId(idProveedor);
         Vino vino = null;
         if (proveedor == null) {
@@ -63,10 +72,10 @@ public class VinoServicio {
                 vino.setDescripcion(descripcion);
                 vino.setCosecha(cosecha);
                 vino.setProveedor(proveedor);
-                vino.setTipo(tipo);
+                vino.setCantidad(cantidad);
                 vino.setVarietal(varietal);
                 vino.setPrecio(precio);
-                proveedorServicio.agregarVinoAProveedor(proveedor, vino);
+//                proveedorServicio.agregarVinoAProveedor(proveedor, vino);
                 vinoRepositorio.save(vino);
             }
         }
