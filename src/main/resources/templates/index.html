@@ -9,10 +9,10 @@
         <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="images/marca.png"/>  
     </head>
-    <body style="background-image: url(../images/viñedoHD.jpg); background-attachment: fixed">
+    <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="registro">TIENDA DE VINOS</a>
+                <a class="navbar-brand" href="inicio">TIENDA DE VINOS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,7 +39,7 @@
                                 </svg> Bodegas</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="nosotros"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-intersect" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a class="nav-link " href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-intersect" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm5 10v2a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2v5a2 2 0 0 1-2 2H5zm6-8H6a2 2 0 0 0-2 2v5H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2z"/>
                                 </svg> Nosotros</a>
                         </li>  
@@ -74,9 +74,8 @@
                 </div>
             </div>
         </nav>
-        
-        <div class="container">
-            <div class="container">
+        <div class="container mt-3">
+            <div class="row">
                 <div class="col-12">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -118,9 +117,9 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <h2 class="text-center" style="color: #fff">LOS MÁS DESTACADOS</h2>
-            <br>
+            <hr>
+            <h2 class="text-center">LOS MÁS DESTACADOS</h2>
+            <hr>
             <div class="container">
                 <div class="container">
                     <div class="row text-center">
@@ -131,7 +130,7 @@
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <div class="card-footer">    
-                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar</a>
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar&nbsp;</a>
                                     </div>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -144,7 +143,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p><h5>Agregar producto al carro</h5></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <p><h6>Agregar producto al carro</h6></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
                                                     <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z"/>
                                                     <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
@@ -152,43 +151,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="col-md-4 pb-1 pb-md-0">
-                            <div class="card">
-                                <img class="card-img-top" src="images/vinotinto2.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="card-footer">    
-                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar</a>
-                                    </div>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p><h5>Agregar producto al carro</h5></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
-                                                    <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z"/>
-                                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                                                    </svg> 
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero</a>
+                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero&nbsp;</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,7 +179,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p><h5>Agregar producto al carro</h5></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <p><h6>Agregar producto al carro</h6></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
                                                     <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z"/>
                                                     <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
@@ -224,7 +187,43 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero</a>
+                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero.&nbsp;</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 pb-1 pb-md-0">
+                            <div class="card">
+                                <img class="card-img-top" src="images/vinotinto1.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div class="card-footer">    
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar&nbsp;</a>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><h6>Agregar producto al carro</h6></p> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
+                                                    <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z"/>
+                                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                                    </svg> 
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sí, lo quiero.&nbsp;</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,64 +232,65 @@
                             </div>
                         </div>
                     </div>
-                <br>
-                <div class="card container text-white bg-dark p-4">
-                    <div class="row">
-                        <div class="col-6 col-md-8 col-lg-7">
-                            <div class="row text-center">
-                                <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-                                    <ul class="list-unstyled">
-                                        <li> <a class="btn-link" href="bodega">Bodega López</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Bianchi</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Escorihuela</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Trapiche</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Piattelli</a> </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-                                    <ul class="list-unstyled">
-                                        <li> <a class="btn-link" href="bodega">Bodega Santa Julia</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Séptima</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Cicchitti</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Zuccardi</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Pulenta</a> </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-                                    <ul class="list-unstyled">
-                                        <li> <a class="btn-link" href="bodega">Bodega Crotta</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Cafayate</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Trivento</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Tempus</a> </li>
-                                        <li> <a class="btn-link" href="bodega">Bodega Alta Vista</a> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-5">
-                            <address>
-                                <strong>TiendaDeVinos, Inc.</strong><strong> // Mesa 1</strong><br>
-                                Berutti 6000<br>
-                                Maipú, MENDOZA - Argentina, CP.5513<br>
-                                <abbr title="Phone">Tel:</abbr> (261) 580-9090
-                                <a href="mailto:tiendadevinos@tiendavinos.com">tiendadevinos@tiendavinos.com</a>
-                            </address>
-                        </div>
-                    </div>
-                </div>
-                <footer class="text-center">
-                    <div class="container">
+
+                    <br>
+                    <div class="card container text-white bg-dark p-4">
                         <div class="row">
-                            <div class="col-12">
-                                <p style="color: #fff">Copyright © tiendadevinos. Derechos reservados.</p>
+                            <div class="col-6 col-md-8 col-lg-7">
+                                <div class="row text-center">
+                                    <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                        <ul class="list-unstyled">
+                                            <li> <a class="btn-link" href="bodega">Bodega López</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Bianchi</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Escorihuela</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Trapiche</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Piattelli</a> </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                        <ul class="list-unstyled">
+                                            <li> <a class="btn-link" href="bodega">Bodega Santa Julia</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Séptima</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Cicchitti</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Zuccardi</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Pulenta</a> </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+                                        <ul class="list-unstyled">
+                                            <li> <a class="btn-link" href="bodega">Bodega Crotta</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Cafayate</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Trivento</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Tempus</a> </li>
+                                            <li> <a class="btn-link" href="bodega">Bodega Alta Vista</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-5">
+                                <address>
+                                    <strong>TiendaDeVinos, Inc.</strong><strong> // Mesa 1</strong><br>
+                                    Berutti 6000<br>
+                                    Maipú, MENDOZA - Argentina, CP.5513<br>
+                                    <abbr title="Phone">Tel:</abbr> (261) 580-9090
+                                    <a href="mailto:tiendadevinos@tiendavinos.com">tiendadevinos@tiendavinos.com</a>
+                                </address>
                             </div>
                         </div>
                     </div>
-                </footer>
-                <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-                <script src="js/jquery-3.4.1.min.js"></script>
-                <!-- Include all compiled plugins (below), or include individual files as needed -->
-                <script src="js/popper.min.js"></script>
-                <script src="js/bootstrap-4.4.1.js"></script>
-                </body>
-                </html>
+                    <footer class="text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Copyright © tiendadevinos. Derechos reservados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+                    <script src="js/jquery-3.4.1.min.js"></script>
+                    <!-- Include all compiled plugins (below), or include individual files as needed -->
+                    <script src="js/popper.min.js"></script>
+                    <script src="js/bootstrap-4.4.1.js"></script>
+                    </body>
+                    </html>

@@ -140,8 +140,8 @@ public class PortalControlador {
             return "cargarProducto";
         }
         vinoServicio.cargarVino(vino, archivo);
-        return "exitoCargaProducto";
-
+        return "cargaProducto";
+    }
 
     @GetMapping("/cargarProveedor")
     public String cargarProveedor(Model model) {
@@ -158,13 +158,9 @@ public class PortalControlador {
         }
 
         proveedorServicio.cargarProveedor(proveedor);
-        return "exitoCargaProveedor";
+        return "cargarProveedor";
     }
     
-    @GetMapping("/nosotros")
-    public String nosotros(ModelMap modelo) {
-        return "nosotros";
-    }
     
-        //////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////
 }
